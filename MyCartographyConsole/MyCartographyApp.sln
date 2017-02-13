@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCartographyConsole", "MyCartographyConsole\MyCartographyConsole.csproj", "{FE6FE08B-05A0-47DD-BA5A-21D871525D08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCartographyObjects", "ClassLibrary1\MyCartographyObjects.csproj", "{5ADFEE83-B403-457F-B702-3F7329C95AE6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE6FE08B-05A0-47DD-BA5A-21D871525D08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6FE08B-05A0-47DD-BA5A-21D871525D08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6FE08B-05A0-47DD-BA5A-21D871525D08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6FE08B-05A0-47DD-BA5A-21D871525D08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ADFEE83-B403-457F-B702-3F7329C95AE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ADFEE83-B403-457F-B702-3F7329C95AE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ADFEE83-B403-457F-B702-3F7329C95AE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ADFEE83-B403-457F-B702-3F7329C95AE6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
