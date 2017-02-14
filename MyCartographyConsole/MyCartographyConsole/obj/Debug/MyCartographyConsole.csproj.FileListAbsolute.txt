@@ -1,6 +1,8 @@
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyConsole.exe.config
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyConsole.exe
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyConsole.pdb
-D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\obj\Debug\MyCartographyConsole.csprojResolveAssemblyReference.cache
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\obj\Debug\MyCartographyConsole.exe
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\obj\Debug\MyCartographyConsole.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyobjects.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyobjects.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\obj\Debug\MyCartographyConsole.csprojResolveAssemblyReference.cache
