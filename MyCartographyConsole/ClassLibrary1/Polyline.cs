@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MathUtilsLib;
 
 namespace MyCartographyObjects
 {
@@ -17,7 +18,7 @@ namespace MyCartographyObjects
  La redéfinition de la méthode Draw() qui affiche les informations 
 concernant la polyline dans la console
      */
-    public class Polyline : CartoObj, IIsPointClose, IPointy
+    public class Polyline : CartoObj, IIsPointClose, IPointy, IComparable<Polyline>
     {
         #region VARIABLE MEMBRE
         private List<POI> _lPOI;
@@ -37,7 +38,12 @@ concernant la polyline dans la console
         }
         public int NbPoints
         {
-            get { return 1; }
+            get
+            {
+                int ret = 0;
+                ret = LPOI.Count();
+                return ret;
+            }
         }
         #endregion //PROPRIETES
 
@@ -78,6 +84,22 @@ concernant la polyline dans la console
 
             return true;
         }
+        public int CompareTo(Polyline pPoly)
+        {
+            return 1;
+        }
         #endregion //METHODES
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+

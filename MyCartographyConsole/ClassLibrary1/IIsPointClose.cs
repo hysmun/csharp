@@ -11,3 +11,12 @@ namespace MyCartographyObjects
         bool IsPointClose(double pLat, double pLong, double pPreci);
     }
 }
+
+
+
+
+
+
+
+
+

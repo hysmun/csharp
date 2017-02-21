@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MathUtilsLib;
 
 namespace MyCartographyObjects
 {
@@ -37,7 +38,29 @@ concernant l’objet polygon dans la console
         }
         public int NbPoints
         {
-            get { return 1; }
+            get
+            {
+                int ret = 0;
+                int i = 0;
+                ret = LPolyline[0].NbPoints;
+                for(i = 0; i < LPolyline.Count()-1; i++)
+                {
+                    ret += LPolyline[i + 1].NbPoints;
+                    if(LPolyline[i].LPOI[LPolyline[i].NbPoints - 1].Id == LPolyline[i+1].LPOI[0].Id)
+                    {
+                        ret -= 1;
+                    }    
+                }
+                if(LPolyline.Count() > 1)
+                {
+                    ret += LPolyline[i].NbPoints;
+                    if (LPolyline[i].LPOI[LPolyline[i].NbPoints - 1].Id == LPolyline[0].LPOI[0].Id)
+                    {
+                        ret -= 1;
+                    }
+                }
+                return ret;
+            }
         }
         #endregion //PROPRIETES
 
@@ -75,9 +98,19 @@ concernant l’objet polygon dans la console
         }
         public bool IsPointClose(double pLat, double pLong, double pPreci)
         {
-            
             return true;
         }
         #endregion //METHODES
     }
 }
+
+
+
+
+
+
+
+
+
+
+

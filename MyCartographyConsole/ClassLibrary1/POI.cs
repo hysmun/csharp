@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MathUtilsLib;
 
 namespace MyCartographyObjects
 {
@@ -82,10 +83,7 @@ et affiche au maximum deux décimales.
         }
         public bool IsPointClose(double pLat, double pLong, double pPreci)
         {
-            Double Hypothenuse, X, Y;
-            X = Math.Abs(pLat - Lat);
-            Y = Math.Abs(pLong - Longitude);
-            Hypothenuse = Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
+            double Hypothenuse = MathUtils.Distance(Lat, Longitude, pLat, pLong);
             if (Hypothenuse > pPreci)
                 return false;
             else
@@ -94,3 +92,21 @@ et affiche au maximum deux décimales.
         #endregion //METHODES
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
