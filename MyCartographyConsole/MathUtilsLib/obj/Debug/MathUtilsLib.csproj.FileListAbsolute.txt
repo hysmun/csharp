@@ -1,0 +1,5 @@
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MathUtilsLib\bin\Debug\MathUtilsLib.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MathUtilsLib\bin\Debug\MathUtilsLib.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MathUtilsLib\obj\Debug\MathUtilsLib.csprojResolveAssemblyReference.cache
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MathUtilsLib\obj\Debug\MathUtilsLib.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MathUtilsLib\obj\Debug\MathUtilsLib.pdb

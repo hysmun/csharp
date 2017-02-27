@@ -6,3 +6,5 @@ D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\o
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyobjects.dll
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyobjects.pdb
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\obj\Debug\MyCartographyConsole.csprojResolveAssemblyReference.cache
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MathUtilsLib.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MathUtilsLib.pdb
