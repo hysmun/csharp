@@ -18,7 +18,7 @@ namespace MyCartographyObjects
  La redéfinition de la méthode Draw() qui affiche les informations 
 concernant la polyline dans la console
      */
-    public class Polyline : CartoObj, IIsPointClose, IPointy, IComparable<Polyline>
+    public class Polyline : CartoObj, IIsPointClose, IPointy, IComparable<Polyline>, IEquatable<Polyline>
     {
         #region VARIABLE MEMBRE
         private List<POI> _lPOI;
@@ -81,12 +81,58 @@ concernant la polyline dans la console
         }
         public bool IsPointClose(double pLat, double pLong, double pPreci)
         {
-
+            throw new NotImplementedException("Polyline : IsPointClose pas implémenté ! ");
             return true;
         }
         public int CompareTo(Polyline pPoly)
         {
-            return 1;
+            if (this.Id == pPoly.Id)
+                return 0;
+            double long1 = 0, long2 = 0, diff = 0; ;
+
+            //calcule longueur de this
+            for(int i=0; i<this.LPOI.Count()-1; i++)
+            {
+                long1 += MathUtils.Distance(this.LPOI[i].Lat, this.LPOI[i].Longitude, this.LPOI[i+1].Lat, this.LPOI[i+1].Longitude);
+            }
+
+            //calcule longueur de pPoly
+            for (int i = 0; i<pPoly.LPOI.Count()-1; i++)
+            {
+                long2 += MathUtils.Distance(pPoly.LPOI[i].Lat, pPoly.LPOI[i].Longitude, pPoly.LPOI[i + 1].Lat, pPoly.LPOI[i + 1].Longitude);
+            }
+            diff = long2 - long1;
+            if (Math.Abs(diff) < Precision)
+                return 0;
+            if (diff > 0)
+                return -1;
+            if (diff < 0)
+                return 1;
+            return 0;
+        }
+        public bool Equals(Polyline pPoly)
+        {
+            if (this.Id == pPoly.Id)
+                return true;
+            double long1 = 0, long2 = 0, diff = 0; ;
+
+            //calcule longueur de this
+            for (int i = 0; i < this.LPOI.Count() - 1; i++)
+            {
+                long1 += MathUtils.Distance(this.LPOI[i].Lat, this.LPOI[i].Longitude, this.LPOI[i + 1].Lat, this.LPOI[i + 1].Longitude);
+            }
+
+            //calcule longueur de pPoly
+            for (int i = 0; i < pPoly.LPOI.Count() - 1; i++)
+            {
+                long2 += MathUtils.Distance(pPoly.LPOI[i].Lat, pPoly.LPOI[i].Longitude, pPoly.LPOI[i + 1].Lat, pPoly.LPOI[i + 1].Longitude);
+            }
+            diff = long2 - long1;
+            if (diff < Precision)
+                return true;
+            else
+                return false;
+
         }
         #endregion //METHODES
     }

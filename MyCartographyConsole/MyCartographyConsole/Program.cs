@@ -47,8 +47,11 @@ namespace MyCartographyConsole
 
                 //list de polyline trié
                 List<Polyline> lPolyline = new List<Polyline>();
-
-                lPolyline.Sort();
+                lPolyline.Add(tPolyline1);
+                lPolyline.Add(tPolyline3);
+                lPolyline.Add(tPolyline2);
+                lPolyline.Add(tPolyline3);
+                lPolyline.Add(tPolyline);
 
                 char lec = '1';
                 Console.Write("Veuillez entrez le numero de test voulu :");
@@ -75,6 +78,7 @@ namespace MyCartographyConsole
                         case '2':
                         case '3':
                             //test 2 et 3
+                            // Afficher cette liste en utilisant le mot clé foreach,
                             Console.WriteLine("Affichage du test 2 et 3 :");
                             foreach (CartoObj tmpCartoObj in lCartoObj)
                             {
@@ -83,6 +87,7 @@ namespace MyCartographyConsole
                             break;
                         case '4':
                             //test 4
+                            //Afficher la liste des objets cartographiques implémentant l’interface IPointy,
                             Console.WriteLine("Affichage du test 4:");
                             foreach (CartoObj tmpCartoObj in lCartoObj)
                             {
@@ -95,6 +100,7 @@ namespace MyCartographyConsole
                             break;
                         case '5':
                             //test 5
+                            // Afficher la liste des objets cartographiques n’implémentant pas l’interface IPointy,
                             int i = 0;
                             Console.WriteLine("Affichage du test 5:");
                             foreach (CartoObj tmpCartoObj in lCartoObj)
@@ -106,6 +112,62 @@ namespace MyCartographyConsole
                                     i++;
                                 }
                             }
+                            break;
+                        case '6':
+                            //test 6
+                            // Créer une liste générique de 5 Polyline, l’afficher, 
+                            // la trier par ordre de longueur croissante1, l’afficher à nouveau. 
+                            // Pour trier, la méthode Sort() de la classe List<T> utilise la méthode CompareTo() 
+                            // définie grâce à l’implémentation dans la classe Polyline 
+                            // de l’interface Icomparable<Polyline>,
+                            Console.WriteLine("Affichage du test 6: liste polyline non trié:\n");
+                            foreach (Polyline tmpPolyline in lPolyline)
+                            {
+                                tmpPolyline.Draw();
+                            }
+                            lPolyline.Sort();
+                            Console.WriteLine("\n\n\nAffichage liste polyline trié:\n");
+                            foreach (Polyline tmpPolyline in lPolyline)
+                            {
+                                tmpPolyline.Draw();
+                            }
+                            break;
+                        case '7':
+                            // test 7
+                            // Sans modifier la méthode CompareTo(), trier la précédente liste par ordre croissant 
+                            // de taille de la surface de la bounding box englobant la polyline. 
+                            // Pour ce faire, il s’agit de créer une classe MyPolylineBoundingBoxComparer 
+                            // implémentant l’interface IComparer<Polyline>,
+                            break;
+                        case '8':
+                            // test 8 
+                            // Rechercher, parmi les polyline de la liste, 
+                            // celles qui présentent la même taille qu’une polyline de référence. 
+                            // Pour ce faire, il s’agit d’implémenter l’interface IEquatable<Polyline>,
+                            Console.WriteLine("Test 8 :");
+                            Console.WriteLine("Polyline de ref : ");
+                            tPolyline1.Draw();
+                            Console.WriteLine("\n");
+                            foreach (Polyline tmpPolyline in lPolyline)
+                            {
+                                tmpPolyline.Draw();
+                                if (tmpPolyline.Equals(tPolyline1) )
+                                {
+                                    // les deux polyline on la même longueur
+                                    Console.WriteLine("Equals !!");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Not Equals!!!");
+                                }
+                            }
+                            break;
+                        case '9':
+                            // test 9
+                            // Rechercher, parmi les polyline de la liste, 
+                            // celles qui sont proches d’un point passé en paramètre. 
+                            // Pour ce faire, il s’agit d’utiliser la méthode IsPointClose() 
+                            // contenue dans l’interface IIsPointClose.
                             break;
                         default:
                             Console.Clear();
