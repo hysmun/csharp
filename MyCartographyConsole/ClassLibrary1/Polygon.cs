@@ -98,7 +98,12 @@ concernant l’objet polygon dans la console
         }
         public bool IsPointClose(double pLat, double pLong, double pPreci)
         {
-            return true;
+            foreach (Polyline tmpPolyline in LPolyline)
+            {
+                if (tmpPolyline.IsPointClose(pLat, pLong, pPreci) == true)
+                    return true;
+            }
+            return false;
         }
         #endregion //METHODES
     }

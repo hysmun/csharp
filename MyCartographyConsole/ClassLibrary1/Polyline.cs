@@ -40,8 +40,44 @@ concernant la polyline dans la console
         {
             get
             {
-                int ret = 0;
-                ret = LPOI.Count();
+                return LPOI.Count();
+            }
+        }
+        public double Longueur
+        {
+            get
+            {
+                double ret = 0;
+                for (int i = 0; i < LPOI.Count() - 1; i++)
+                {
+                    ret += MathUtils.Distance(LPOI[i].Lat, LPOI[i].Longitude, LPOI[i + 1].Lat, LPOI[i + 1].Longitude);
+                }
+                return ret;
+            }
+        }
+        public double BoudingBox
+        {
+            get
+            {
+                double ret = 0;
+                if (LPOI.Count < 2)
+                    return 0;
+                double gauche = LPOI[0].Longitude;
+                double droite = LPOI[0].Longitude;
+                double haut = LPOI[0].Lat;
+                double bas = LPOI[0].Lat;
+                foreach (POI tmpPOI in LPOI)
+                {
+                    if (tmpPOI.Longitude > droite)
+                        droite = tmpPOI.Longitude;
+                    if (tmpPOI.Longitude < gauche)
+                        gauche = tmpPOI.Longitude;
+                    if (tmpPOI.Lat > bas)
+                        bas = tmpPOI.Lat;
+                    if (tmpPOI.Lat < haut)
+                        haut = tmpPOI.Lat;
+                }
+                ret = MathUtils.Distance(haut, gauche, haut, droite) * MathUtils.Distance(haut, droite, bas, droite);
                 return ret;
             }
         }
@@ -81,26 +117,34 @@ concernant la polyline dans la console
         }
         public bool IsPointClose(double pLat, double pLong, double pPreci)
         {
-            throw new NotImplementedException("Polyline : IsPointClose pas implémenté ! ");
-            return true;
+            if (LPOI.Count < 1)
+                return false;
+            if (LPOI.Count < 2)
+                return LPOI[0].IsPointClose(pLat, pLong, pPreci);
+            double ret = 0, min = 0 ;
+            double distanceAB, distanceAC, distanceBC;
+            for(int i=0; i< LPOI.Count-1; i++)
+            {
+                distanceAB = MathUtils.Distance(LPOI[i].Longitude, LPOI[i].Lat, LPOI[i + 1].Longitude, LPOI[i + 1].Lat);
+                distanceAC = MathUtils.Distance(LPOI[i].Longitude, LPOI[i].Lat, pLong, pLat);
+                distanceBC = MathUtils.Distance(LPOI[i+1].Longitude, LPOI[i+1].Lat, pLong, pLat);
+                if(distanceBC > distanceAC)
+                    ret = Math.Sqrt(Math.Pow(distanceBC,2) - Math.Pow((distanceBC/(distanceBC+distanceAC))*distanceAB,2));
+                else
+                    ret = Math.Sqrt(Math.Pow(distanceAC, 2) - Math.Pow((distanceAC / (distanceBC + distanceAC)) * distanceAB, 2));
+                if (ret < pPreci)
+                    return true;
+                else
+                    return false;
+            }
+            return false;
         }
         public int CompareTo(Polyline pPoly)
         {
             if (this.Id == pPoly.Id)
                 return 0;
-            double long1 = 0, long2 = 0, diff = 0; ;
+            double long1 = this.Longueur, long2 = pPoly.Longueur, diff = 0; ;
 
-            //calcule longueur de this
-            for(int i=0; i<this.LPOI.Count()-1; i++)
-            {
-                long1 += MathUtils.Distance(this.LPOI[i].Lat, this.LPOI[i].Longitude, this.LPOI[i+1].Lat, this.LPOI[i+1].Longitude);
-            }
-
-            //calcule longueur de pPoly
-            for (int i = 0; i<pPoly.LPOI.Count()-1; i++)
-            {
-                long2 += MathUtils.Distance(pPoly.LPOI[i].Lat, pPoly.LPOI[i].Longitude, pPoly.LPOI[i + 1].Lat, pPoly.LPOI[i + 1].Longitude);
-            }
             diff = long2 - long1;
             if (Math.Abs(diff) < Precision)
                 return 0;
@@ -114,19 +158,8 @@ concernant la polyline dans la console
         {
             if (this.Id == pPoly.Id)
                 return true;
-            double long1 = 0, long2 = 0, diff = 0; ;
+            double long1 = this.Longueur, long2 = pPoly.Longueur, diff = 0; ;
 
-            //calcule longueur de this
-            for (int i = 0; i < this.LPOI.Count() - 1; i++)
-            {
-                long1 += MathUtils.Distance(this.LPOI[i].Lat, this.LPOI[i].Longitude, this.LPOI[i + 1].Lat, this.LPOI[i + 1].Longitude);
-            }
-
-            //calcule longueur de pPoly
-            for (int i = 0; i < pPoly.LPOI.Count() - 1; i++)
-            {
-                long2 += MathUtils.Distance(pPoly.LPOI[i].Lat, pPoly.LPOI[i].Longitude, pPoly.LPOI[i + 1].Lat, pPoly.LPOI[i + 1].Longitude);
-            }
             diff = long2 - long1;
             if (diff < Precision)
                 return true;

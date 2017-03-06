@@ -16,7 +16,7 @@ namespace MyCartographyObjects
     {
         #region VARIABLE MEMBRE
         protected int _id;
-        static double _precision;
+        static protected double _precision;
         #endregion //VARIABLE MEMBRE
 
         #region PROPRIETES
@@ -25,7 +25,7 @@ namespace MyCartographyObjects
             get { return _id; }
             set { _id = value; }
         }
-        public double Precision
+        static public double Precision
         {
             get { return _precision; }
             set { _precision = value; }

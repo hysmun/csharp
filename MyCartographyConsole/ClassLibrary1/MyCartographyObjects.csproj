@@ -43,6 +43,7 @@
     <Compile Include="CartoObj.cs" />
     <Compile Include="IIsPointClose.cs" />
     <Compile Include="IPointy.cs" />
+    <Compile Include="MyPolylineBoundingBoxComparer.cs" />
     <Compile Include="Polyline.cs" />
     <Compile Include="POI.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

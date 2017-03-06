@@ -29,8 +29,8 @@ namespace MyCartographyConsole
                 Polygon tPolygon3 = new Polygon(), tPolygon4 = new Polygon();
 
                 //construction des polyline et polygon
-                tPolyline1.LPOI.Add(tPoi0); tPolyline1.LPOI.Add(tPoi3); tPolyline1.LPOI.Add(tPoi4);
-                tPolyline2.LPOI.Add(tPoi4); tPolyline2.LPOI.Add(tPoi5); tPolyline2.LPOI.Add(tPoi2);
+                tPolyline1.LPOI.Add(tPoi0); tPolyline1.LPOI.Add(tPoi1); tPolyline1.LPOI.Add(tPoi3);
+                tPolyline2.LPOI.Add(tPoi0); tPolyline2.LPOI.Add(tPoi2); tPolyline2.LPOI.Add(tPoi6);
                 tPolyline3.LPOI.Add(tPoi6); tPolyline3.LPOI.Add(tPoi7); tPolyline3.LPOI.Add(tPoi8); tPolyline3.LPOI.Add(tPoi4);
                 tPolygon1.LPolyline.Add(tPolyline2);
                 tPolygon2.LPolyline.Add(tPolyline2); tPolygon2.LPolyline.Add(tPolyline1);
@@ -138,6 +138,20 @@ namespace MyCartographyConsole
                             // de taille de la surface de la bounding box englobant la polyline. 
                             // Pour ce faire, il s’agit de créer une classe MyPolylineBoundingBoxComparer 
                             // implémentant l’interface IComparer<Polyline>,
+                            MyPolylineBoundingBoxComparer polylineCmp = new MyPolylineBoundingBoxComparer();
+                            CartoObj.Precision = 1;
+                            Console.WriteLine("Affichage du test 7: liste polyline non trié:\n");
+                            foreach (Polyline tmpPolyline in lPolyline)
+                            {
+                                tmpPolyline.Draw();
+                            }
+                            lPolyline.Sort(polylineCmp);
+                            Console.WriteLine("\n\n\nAffichage liste polyline trié par taille bouding box:\n");
+                            foreach (Polyline tmpPolyline in lPolyline)
+                            {
+                                tmpPolyline.Draw();
+                                Console.WriteLine(" bouding : "+tmpPolyline.BoudingBox);
+                            }
                             break;
                         case '8':
                             // test 8 
@@ -168,6 +182,21 @@ namespace MyCartographyConsole
                             // celles qui sont proches d’un point passé en paramètre. 
                             // Pour ce faire, il s’agit d’utiliser la méthode IsPointClose() 
                             // contenue dans l’interface IIsPointClose.
+                            double x=0.5, y=0.5, preci=0.9;
+                            Console.Write(" Point (" + x + "," + y + ") \n\n");
+                            foreach (Polyline tmpPolyline in lPolyline)
+                            {
+                                tmpPolyline.Draw();
+                                
+                                if(tmpPolyline.IsPointClose(x, y, preci) == true)
+                                {
+                                    Console.WriteLine("Proche !");
+                                }
+                                else
+                                {
+                                    Console.WriteLine(" Eloignee !!");
+                                }
+                            }
                             break;
                         default:
                             Console.Clear();
@@ -182,7 +211,8 @@ namespace MyCartographyConsole
             }
             catch(Exception r)
             {
-                    Console.WriteLine("ERREUR !!! ");
+                Console.WriteLine("ERREUR !!! ");
+                Console.ReadKey();
             }
         }
     }
