@@ -129,9 +129,9 @@ concernant la polyline dans la console
                 distanceAC = MathUtils.Distance(LPOI[i].Longitude, LPOI[i].Lat, pLong, pLat);
                 distanceBC = MathUtils.Distance(LPOI[i+1].Longitude, LPOI[i+1].Lat, pLong, pLat);
                 if(distanceBC > distanceAC)
-                    ret = Math.Sqrt(Math.Pow(distanceBC,2) - Math.Pow((distanceBC/(distanceBC+distanceAC))*distanceAB,2));
+                    ret = Math.Sqrt(distanceBC*distanceBC - Math.Pow((distanceBC/(distanceBC+distanceAC))*distanceAB,2));
                 else
-                    ret = Math.Sqrt(Math.Pow(distanceAC, 2) - Math.Pow((distanceAC / (distanceBC + distanceAC)) * distanceAB, 2));
+                    ret = Math.Sqrt(distanceAC*distanceAC - Math.Pow((distanceAC / (distanceBC + distanceAC)) * distanceAB, 2));
                 if (ret < pPreci)
                     return true;
                 else
@@ -143,7 +143,7 @@ concernant la polyline dans la console
         {
             if (this.Id == pPoly.Id)
                 return 0;
-            double long1 = this.Longueur, long2 = pPoly.Longueur, diff = 0; ;
+            double long1 = this.Longueur, long2 = pPoly.Longueur, diff = 0;
 
             diff = long2 - long1;
             if (Math.Abs(diff) < Precision)
