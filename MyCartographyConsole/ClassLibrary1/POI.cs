@@ -75,6 +75,7 @@ et affiche au maximum deux décimales.
         }
         public override string ToString()
         {
+            //        (x.xx, y.yy)
             return "(" + Lat.ToString("F2") + ", " + Longitude.ToString("F2") + ")";
         }
         private void NextId()
@@ -83,6 +84,7 @@ et affiche au maximum deux décimales.
         }
         public bool IsPointClose(double pLat, double pLong, double pPreci)
         {
+            // distance entre pos POI et le point passé en param 
             double Hypothenuse = MathUtils.Distance(Lat, Longitude, pLat, pLong);
             if (Hypothenuse > pPreci)
                 return false;

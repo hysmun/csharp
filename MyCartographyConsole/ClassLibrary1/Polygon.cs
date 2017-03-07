@@ -98,6 +98,8 @@ concernant l’objet polygon dans la console
         }
         public bool IsPointClose(double pLat, double pLong, double pPreci)
         {
+            //!!!!!!!!!!!!!!!!       A MODIFIER       !!!!!!!!!!!!!!!
+            // on regarde jsute la distance entre le point et chaque polyline si une est proche la polygon est proche
             foreach (Polyline tmpPolyline in LPolyline)
             {
                 if (tmpPolyline.IsPointClose(pLat, pLong, pPreci) == true)

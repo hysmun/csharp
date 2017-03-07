@@ -13,7 +13,7 @@ namespace MathUtilsLib
             double X, Y;
             X = x2 - x1;
             Y = y2 - y1;
-            return Math.Sqrt(Math.Pow(X, 2) + Math.Pow(Y, 2));
+            return Math.Sqrt((X*X) + (Y*Y));
         }
     }
 }

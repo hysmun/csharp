@@ -16,7 +16,7 @@ namespace MyCartographyObjects
     {
         #region VARIABLE MEMBRE
         protected int _id;
-        static protected double _precision;
+        static protected double _precision; // une precision pour toutes les classes Cartography 
         #endregion //VARIABLE MEMBRE
 
         #region PROPRIETES

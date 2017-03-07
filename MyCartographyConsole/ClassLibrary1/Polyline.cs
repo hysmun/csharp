@@ -45,6 +45,8 @@ concernant la polyline dans la console
         }
         public double Longueur
         {
+            // donne la longueur de la polyline 
+            // fait la somme les longueur de chaque segment 
             get
             {
                 double ret = 0;
@@ -57,15 +59,19 @@ concernant la polyline dans la console
         }
         public double BoudingBox
         {
+            // donne l'aire de la boudingBox de la polyline
             get
             {
-                double ret = 0;
+                // si 0 ou 1 point alors aire = 0
                 if (LPOI.Count < 2)
                     return 0;
-                double gauche = LPOI[0].Longitude;
-                double droite = LPOI[0].Longitude;
-                double haut = LPOI[0].Lat;
-                double bas = LPOI[0].Lat;
+                // initialisation des min et max verticaux et horizontal
+                double gauche = LPOI[0].Longitude;// min vertical
+                double droite = LPOI[0].Longitude;// max vertical
+                double haut = LPOI[0].Lat;// min horizontal
+                double bas = LPOI[0].Lat;// max horizontal
+                 
+                // premier tour de boucle de ne sert a rien vu l'initialisation du dessus 
                 foreach (POI tmpPOI in LPOI)
                 {
                     if (tmpPOI.Longitude > droite)
@@ -77,8 +83,10 @@ concernant la polyline dans la console
                     if (tmpPOI.Lat < haut)
                         haut = tmpPOI.Lat;
                 }
-                ret = MathUtils.Distance(haut, gauche, haut, droite) * MathUtils.Distance(haut, droite, bas, droite);
-                return ret;
+                //on a les min et max verticau et horizontal
+
+                // on fait distance point haut-gauche et haut-droite  multiplié par distance point haut-droite et bas-droite
+                return MathUtils.Distance(haut, gauche, haut, droite) * MathUtils.Distance(haut, droite, bas, droite);
             }
         }
         #endregion //PROPRIETES
@@ -117,18 +125,30 @@ concernant la polyline dans la console
         }
         public bool IsPointClose(double pLat, double pLong, double pPreci)
         {
+            // si 0 point alors le point n'est pas proche ! donc false
             if (LPOI.Count < 1)
                 return false;
+            //si 1 seul point alors on fait IsPointClose de ce POI
             if (LPOI.Count < 2)
                 return LPOI[0].IsPointClose(pLat, pLong, pPreci);
-            double ret = 0, min = 0 ;
+            double ret = 0;
             double distanceAB, distanceAC, distanceBC;
             for(int i=0; i< LPOI.Count-1; i++)
             {
+                // on construit le triangle ABC  et on calcule les 3 longueur de coté
+                // A est le premier POI (i)
+                // B est le POI suivant (i+1)
+                // C est le point donner en paramètre
                 distanceAB = MathUtils.Distance(LPOI[i].Longitude, LPOI[i].Lat, LPOI[i + 1].Longitude, LPOI[i + 1].Lat);
                 distanceAC = MathUtils.Distance(LPOI[i].Longitude, LPOI[i].Lat, pLong, pLat);
                 distanceBC = MathUtils.Distance(LPOI[i+1].Longitude, LPOI[i+1].Lat, pLong, pLat);
-                if(distanceBC > distanceAC)
+
+                // la formule ne marche que avec le coté AC ou BC le plus grand
+                // sqrt(BC² - ((BC/(BC+AC))*AB)²)
+                // BC est l'hypothenuse
+                // ((BC/(BC+AC))*AB)² est la proportion de BC sur AB pour avoir la longueur du coté AB qu'il faut pour le triangle rectangle BCX
+                // X etant sur le segment AB et est le point d'intersection entre la perpendiculaire a AB passant par C et AB 
+                if (distanceBC > distanceAC)
                     ret = Math.Sqrt(distanceBC*distanceBC - Math.Pow((distanceBC/(distanceBC+distanceAC))*distanceAB,2));
                 else
                     ret = Math.Sqrt(distanceAC*distanceAC - Math.Pow((distanceAC / (distanceBC + distanceAC)) * distanceAB, 2));
@@ -140,12 +160,14 @@ concernant la polyline dans la console
             return false;
         }
         public int CompareTo(Polyline pPoly)
-        {
+        {   
+            // id les mêmes ce sont les mêmes point
             if (this.Id == pPoly.Id)
                 return 0;
-            double long1 = this.Longueur, long2 = pPoly.Longueur, diff = 0;
+            // on calcule les longueur des deux polyline
+            double diff = 0;
 
-            diff = long2 - long1;
+            diff = pPoly.Longueur - Longueur;
             if (Math.Abs(diff) < Precision)
                 return 0;
             if (diff > 0)
@@ -156,11 +178,14 @@ concernant la polyline dans la console
         }
         public bool Equals(Polyline pPoly)
         {
+            // id les mêmes ce sont les mêmes point
             if (this.Id == pPoly.Id)
                 return true;
-            double long1 = this.Longueur, long2 = pPoly.Longueur, diff = 0; ;
+            // on calcule les longueur des deux polyline
+            double diff = 0; ;
 
-            diff = long2 - long1;
+            //on calcule difference entre les longueurs
+            diff = pPoly.Longueur - Longueur;
             if (diff < Precision)
                 return true;
             else
