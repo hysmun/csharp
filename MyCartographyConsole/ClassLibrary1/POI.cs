@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MathUtilsLib;
+using System.Drawing;
 
 namespace MyCartographyObjects
 {
@@ -23,7 +24,7 @@ ces variables sont déjà prévues pour,
  La surcharge de la méthode ToString() qui construit une chaîne de caractères 
 et affiche au maximum deux décimales.
      */
-    public class POI : CartoObj, IIsPointClose
+    public class POI : CartoObj, IIsPointClose, IDrawable
     {
         #region VARIABLE MEMBRE
         private double _lat;
@@ -52,6 +53,7 @@ et affiche au maximum deux décimales.
         #region CONSTRUCTEURS
         public POI()
         {
+            Description = "POI";
             NextId();
         }
         public POI(int pLat, int pLong)
@@ -75,8 +77,7 @@ et affiche au maximum deux décimales.
         }
         public override string ToString()
         {
-            //        (x.xx, y.yy)
-            return "(" + Lat.ToString("F2") + ", " + Longitude.ToString("F2") + ")";
+            return Description + " " + Id;
         }
         private void NextId()
         {
@@ -90,6 +91,10 @@ et affiche au maximum deux décimales.
                 return false;
             else
                 return true;
+        }
+        public void Draw(Graphics g)
+        {
+            throw new NotImplementedException();
         }
         #endregion //METHODES
     }

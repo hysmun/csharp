@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MathUtilsLib;
+using System.Drawing;
 
 namespace MyCartographyObjects
 {
@@ -18,7 +19,7 @@ namespace MyCartographyObjects
  La redéfinition de la méthode Draw() qui affiche les informations 
 concernant la polyline dans la console
      */
-    public class Polyline : CartoObj, IIsPointClose, IPointy, IComparable<Polyline>, IEquatable<Polyline>
+    public class Polyline : CartoObj, IIsPointClose, IPointy, IComparable<Polyline>, IEquatable<Polyline>, IDrawable
     {
         #region VARIABLE MEMBRE
         private List<POI> _lPOI;
@@ -94,6 +95,7 @@ concernant la polyline dans la console
         #region CONSTRUCTEURS
         public Polyline()
         {
+            Description = "Polyline";
             NextId();
             LPOI = new List<POI>();
         }
@@ -112,12 +114,7 @@ concernant la polyline dans la console
         }
         public override string ToString()
         {
-            string ret = "PL{ ";
-            foreach(POI tPoi in LPOI)
-            {
-                ret += tPoi.ToString();
-            }
-            return ret +" }";
+            return Description + " " + Id;
         }
         private void NextId()
         {
@@ -191,6 +188,10 @@ concernant la polyline dans la console
             else
                 return false;
 
+        }
+        public void Draw(Graphics g)
+        {
+            throw new NotImplementedException();
         }
         #endregion //METHODES
     }

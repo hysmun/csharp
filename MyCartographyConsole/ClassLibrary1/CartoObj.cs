@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MathUtilsLib;
+using System.Drawing;
 
 namespace MyCartographyObjects
 {
@@ -16,6 +17,9 @@ namespace MyCartographyObjects
     {
         #region VARIABLE MEMBRE
         protected int _id;
+        protected string _description;
+        protected Color _couleur;
+        protected double _largeur;
         static protected double _precision; // une precision pour toutes les classes Cartography 
         #endregion //VARIABLE MEMBRE
 
@@ -29,6 +33,21 @@ namespace MyCartographyObjects
         {
             get { return _precision; }
             set { _precision = value; }
+        }
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
+        public Color Couleur
+        {
+            get { return _couleur; }
+            set { _couleur = value; }
+        }
+        public double Largeur
+        {
+            get { return _largeur; }
+            set { _largeur = value; }
         }
         #endregion //PROPRIETES
 

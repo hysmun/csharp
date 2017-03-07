@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MathUtilsLib;
+using System.Drawing;
 
 namespace MyCartographyObjects
 {
@@ -18,7 +19,7 @@ partir d’un compteur « static » du nombre d’instances de chaque sorte d’
  La redéfinition de la méthode Draw() qui affiche les informations 
 concernant l’objet polygon dans la console
      */
-    public class Polygon : CartoObj, IIsPointClose, IPointy
+    public class Polygon : CartoObj, IIsPointClose, IPointy, IDrawable
     {
         #region VARIABLE MEMBRE
         static private int _NBRINS = 0;
@@ -67,6 +68,7 @@ concernant l’objet polygon dans la console
         #region CONSTRUCTEURS
         public Polygon()
         {
+            Description = "Polygon";
             NextId();
             LPolyline = new List<Polyline>();
         }
@@ -85,12 +87,7 @@ concernant l’objet polygon dans la console
         }
         public override string ToString()
         {
-            string ret = "PG < ";
-            foreach (Polyline tPolyline in LPolyline)
-            {
-                ret += tPolyline.ToString()+" ";
-            }
-            return ret +" >";
+            return Description + " " + Id;
         }
         private void NextId()
         {
@@ -106,6 +103,10 @@ concernant l’objet polygon dans la console
                     return true;
             }
             return false;
+        }
+        public void Draw(Graphics g)
+        {
+            throw new NotImplementedException();
         }
         #endregion //METHODES
     }
