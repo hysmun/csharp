@@ -55,7 +55,12 @@ namespace Inpres_Map
 
         private void ClickOnButtonColor(object sender, EventArgs e)
         {
-
+            ColorDialog ColorDial = new ColorDialog();
+            ColorDial.AllowFullOpen = false;
+            ColorDialog.ShowHelp = true;
+            ColorDialog.Color = ColorButtonToolStrip.BackColor;
+            if (ColorDial.ShowDialog() == DialogResult.OK)
+                ColorButtonToolStrip.BackColor = ColorDial.Color;
         }
     }
 }

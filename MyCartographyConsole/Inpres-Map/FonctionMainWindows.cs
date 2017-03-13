@@ -12,7 +12,7 @@ namespace Inpres_Map
 {
     public partial class WindowPrincipale : Form
     {
-        private void ClickOnButtonColor(object sender, EventArgs e)
+        /*private void ClickOnButtonColor(object sender, EventArgs e)
         {
             ColorDialog ColorDial = new ColorDialog();
             ColorDial.AllowFullOpen = false;
@@ -20,6 +20,6 @@ namespace Inpres_Map
             ColorDialog.Color = ColorButtonToolStrip.BackColor;
             if (ColorDial.ShowDialog() == DialogResult.OK)
                 ColorButtonToolStrip.BackColor = ColorDial.Color;
-        }
+        }      */
     }
 }
