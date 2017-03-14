@@ -68,6 +68,15 @@ et affiche au maximum deux décimales.
             Lat = pLat;
             Longitude = pLong;
         }
+        public POI(double pLat, double pLong, string pDescription, Color pCouleur, double pLargeur)
+        {
+            NextId();
+            Lat = pLat;
+            Longitude = pLong;
+            Description = pDescription;
+            Couleur = pCouleur;
+            Largeur = pLargeur;
+        }
         #endregion //CONSTRUCTEURS
 
         #region METHODES
@@ -94,7 +103,9 @@ et affiche au maximum deux décimales.
         }
         public void Draw(Graphics g)
         {
-            throw new NotImplementedException();
+            Pen myPen = new Pen(Couleur, (float)Largeur);
+            g.DrawLine(myPen, (float)Lat + 10, (float)Longitude - 10, (float)Lat - 10, (float)Longitude + 10);
+            g.DrawLine(myPen, (float)Lat - 10, (float)Longitude - 10, (float)Lat + 10, (float)Longitude + 10);
         }
         #endregion //METHODES
     }

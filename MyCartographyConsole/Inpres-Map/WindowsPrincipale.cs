@@ -15,7 +15,14 @@ namespace Inpres_Map
     {
         //variable pour l'app
         double precisionGlobal = 5.00;
+        double largeurGlobal = 2.00;
         Color couleurGlobal = Color.Blue;
+
+        //variable temporaire pour creation de Polyline et Polygon
+        Polyline tmpCreationPolyline;
+        Polygon tmpCreationPolygon;
+
+        //BidingList
         BindingList<POI> listePOI = new BindingList<POI>();
         BindingList<Polyline> listePolyline = new BindingList<Polyline>();
         BindingList<Polygon> listePolygon = new BindingList<Polygon>();
@@ -82,7 +89,7 @@ namespace Inpres_Map
         private void MainPictureBox_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            //Draw(g);
+            Draw(g);
         }
 
         private void POIButton_Click(object sender, EventArgs e)
@@ -143,6 +150,49 @@ namespace Inpres_Map
                 tmp.Draw(g);
             }
             #endregion
+        }
+
+        private void MainPictureBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            #region Creation Nouveau item
+            if (CreationModeItem.Checked == true)
+            {
+                #region Nouveau POI
+                if (POIButton.Checked == true)
+                {
+                    // nouveau POI
+                    POI newPOI = new POI(e.X, e.Y, DescriptionTB.Text, ColorButtonToolStrip.BackColor, largeurGlobal);
+                    listePOI.Add(newPOI);
+                }
+                #endregion
+
+                #region Nouveau Polyline
+                if (PolylineButton.Checked == true)
+                {
+                    // nouveau Polyline
+                    int poiProche = 0;
+                    foreach(POI tPOI in listePOI)
+                    {
+                        if(tPOI.IsPointClose(e.X, e.Y, precisionGlobal))
+                        {
+
+                        }
+                    }
+                }
+                #endregion
+
+                #region Nouveau Polygon
+                if (PolygonButton.Checked == true)
+                {
+                    // nouveau Polygon
+                    Polygon newPolygon = new Polygon();
+                    listePolygon.Add(newPolygon);
+                }
+                #endregion
+            }
+            #endregion
+
+            MainPictureBox.Invalidate();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace MyCartographyObjects
         protected int _id;
         protected string _description;
         protected Color _couleur;
-        protected double _largeur;
+        protected double _largeur=1;
         static protected double _precision; // une precision pour toutes les classes Cartography 
         #endregion //VARIABLE MEMBRE
 

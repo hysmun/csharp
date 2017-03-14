@@ -151,8 +151,6 @@ concernant la polyline dans la console
                     ret = Math.Sqrt(distanceAC*distanceAC - Math.Pow((distanceAC / (distanceBC + distanceAC)) * distanceAB, 2));
                 if (ret < pPreci)
                     return true;
-                else
-                    return false;
             }
             return false;
         }
@@ -191,7 +189,11 @@ concernant la polyline dans la console
         }
         public void Draw(Graphics g)
         {
-            throw new NotImplementedException();
+            Pen myPen = new Pen(Couleur, (float)Largeur);
+            for (int i = 0; i < LPOI.Count - 1; i++)
+            {
+                g.DrawLine(myPen, (float)LPOI[i].Lat, (float)LPOI[i].Longitude, (float)LPOI[i + 1].Lat, (float)LPOI[i + 1].Longitude);
+            }
         }
         #endregion //METHODES
     }
