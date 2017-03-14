@@ -43,8 +43,6 @@
             this.SelectionModeItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeplacementModeItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SupprimerButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.POILB = new System.Windows.Forms.ListBox();
             this.PolylineLB = new System.Windows.Forms.ListBox();
             this.PolygonLB = new System.Windows.Forms.ListBox();
@@ -54,9 +52,9 @@
             this.POIlabel = new System.Windows.Forms.Label();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
-            this.aboutItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.MainToolStrip.SuspendLayout();
             this.MainMenu.SuspendLayout();
@@ -64,11 +62,14 @@
             // 
             // MainPictureBox
             // 
+            this.MainPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("MainPictureBox.Image")));
             this.MainPictureBox.Location = new System.Drawing.Point(258, 56);
             this.MainPictureBox.Name = "MainPictureBox";
             this.MainPictureBox.Size = new System.Drawing.Size(1370, 775);
+            this.MainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MainPictureBox.TabIndex = 0;
             this.MainPictureBox.TabStop = false;
+            this.MainPictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPictureBox_Paint);
             // 
             // MainToolStrip
             // 
@@ -82,9 +83,7 @@
             this.CouleurLabelToolStrip,
             this.ColorButtonToolStrip,
             this.ModeToolStrip,
-            this.SupprimerButton,
-            this.toolStripButton1,
-            this.toolStripDropDownButton1});
+            this.SupprimerButton});
             this.MainToolStrip.Location = new System.Drawing.Point(0, 28);
             this.MainToolStrip.Name = "MainToolStrip";
             this.MainToolStrip.Size = new System.Drawing.Size(1640, 27);
@@ -93,12 +92,15 @@
             // 
             // POIButton
             // 
+            this.POIButton.Checked = true;
+            this.POIButton.CheckState = System.Windows.Forms.CheckState.Checked;
             this.POIButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.POIButton.Image = ((System.Drawing.Image)(resources.GetObject("POIButton.Image")));
             this.POIButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.POIButton.Name = "POIButton";
             this.POIButton.Size = new System.Drawing.Size(24, 24);
             this.POIButton.Text = "POI";
+            this.POIButton.Click += new System.EventHandler(this.POIButton_Click);
             // 
             // PolylineButton
             // 
@@ -108,6 +110,7 @@
             this.PolylineButton.Name = "PolylineButton";
             this.PolylineButton.Size = new System.Drawing.Size(24, 24);
             this.PolylineButton.Text = "Polyline";
+            this.PolylineButton.Click += new System.EventHandler(this.PolylineButton_Click);
             // 
             // PolygonButton
             // 
@@ -117,6 +120,7 @@
             this.PolygonButton.Name = "PolygonButton";
             this.PolygonButton.Size = new System.Drawing.Size(24, 24);
             this.PolygonButton.Text = "Polygon";
+            this.PolygonButton.Click += new System.EventHandler(this.PolygonButton_Click);
             // 
             // DescriptionLabel
             // 
@@ -158,33 +162,32 @@
             this.ModeToolStrip.Name = "ModeToolStrip";
             this.ModeToolStrip.Size = new System.Drawing.Size(62, 24);
             this.ModeToolStrip.Text = "Mode";
-            this.ModeToolStrip.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
             // 
             // CreationModeItem
             // 
             this.CreationModeItem.Checked = true;
-            this.CreationModeItem.CheckOnClick = true;
             this.CreationModeItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CreationModeItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.CreationModeItem.Name = "CreationModeItem";
             this.CreationModeItem.Size = new System.Drawing.Size(181, 26);
             this.CreationModeItem.Text = "Création";
+            this.CreationModeItem.Click += new System.EventHandler(this.CreationModeItem_Click);
             // 
             // SelectionModeItem
             // 
-            this.SelectionModeItem.CheckOnClick = true;
             this.SelectionModeItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.SelectionModeItem.Name = "SelectionModeItem";
             this.SelectionModeItem.Size = new System.Drawing.Size(181, 26);
             this.SelectionModeItem.Text = "Selection";
+            this.SelectionModeItem.Click += new System.EventHandler(this.SelectionModeItem_Click);
             // 
             // DeplacementModeItem
             // 
-            this.DeplacementModeItem.CheckOnClick = true;
             this.DeplacementModeItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.DeplacementModeItem.Name = "DeplacementModeItem";
             this.DeplacementModeItem.Size = new System.Drawing.Size(181, 26);
             this.DeplacementModeItem.Text = "Déplacement";
+            this.DeplacementModeItem.Click += new System.EventHandler(this.DeplacementModeItem_Click);
             // 
             // SupprimerButton
             // 
@@ -194,24 +197,6 @@
             this.SupprimerButton.Name = "SupprimerButton";
             this.SupprimerButton.Size = new System.Drawing.Size(82, 24);
             this.SupprimerButton.Text = "Supprimer";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(34, 24);
-            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
             // 
             // POILB
             // 
@@ -290,6 +275,13 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // aboutItem
+            // 
+            this.aboutItem.Name = "aboutItem";
+            this.aboutItem.Size = new System.Drawing.Size(125, 26);
+            this.aboutItem.Text = "About";
+            this.aboutItem.Click += new System.EventHandler(this.aboutItem_Click);
+            // 
             // MainMenu
             // 
             this.MainMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -301,12 +293,6 @@
             this.MainMenu.Size = new System.Drawing.Size(1640, 28);
             this.MainMenu.TabIndex = 2;
             this.MainMenu.Text = "menuStrip1";
-            // 
-            // aboutItem
-            // 
-            this.aboutItem.Name = "aboutItem";
-            this.aboutItem.Size = new System.Drawing.Size(181, 26);
-            this.aboutItem.Text = "About";
             // 
             // WindowPrincipale
             // 
@@ -363,8 +349,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.MenuStrip MainMenu;
         private System.Windows.Forms.ColorDialog ColorDialog;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem aboutItem;
     }
 }

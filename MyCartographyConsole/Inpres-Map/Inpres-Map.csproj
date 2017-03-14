@@ -46,9 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FonctionMainWindows.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="WindowsPrincipale.cs">
       <SubType>Form</SubType>
     </Compile>
