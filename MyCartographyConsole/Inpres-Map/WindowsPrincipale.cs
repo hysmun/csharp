@@ -14,9 +14,9 @@ namespace Inpres_Map
     public partial class WindowPrincipale : Form
     {
         //variable pour l'app
-        double precisionGlobal = 5.00;
-        double largeurGlobal = 2.00;
-        Color couleurGlobal = Color.Blue;
+        static public double precisionGlobal = 5.00;
+        static public double largeurGlobal = 2.00;
+        static public Color couleurGlobal = Color.Blue;
 
         //variable temporaire pour creation de Polyline et Polygon
         Polyline tmpCreationPolyline;
@@ -30,15 +30,25 @@ namespace Inpres_Map
         public WindowPrincipale()
         {
             InitializeComponent();
-            CreationModeItem.Checked = false;
+
+            // ListeBox
+            POILB.ForeColor = couleurGlobal;
+            PolylineLB.ForeColor = couleurGlobal;
+            PolygonLB.ForeColor = couleurGlobal;
+            POILB.DataSource = listePOI;
+            PolylineLB.DataSource = listePolyline;
+            PolygonLB.DataSource = listePolygon;
+
+            //
+            CreationModeItem.Checked = true;
         }
 
         private void ClickOnButtonColor(object sender, EventArgs e)
         {
             ColorDialog ColorDial = new ColorDialog();
             ColorDial.AllowFullOpen = false;
-            ColorDialog.ShowHelp = true;
-            ColorDialog.Color = ColorButtonToolStrip.BackColor;
+            ColorDial.ShowHelp = true;
+            ColorDial.Color = ColorButtonToolStrip.BackColor;
             if (ColorDial.ShowDialog() == DialogResult.OK)
                 ColorButtonToolStrip.BackColor = ColorDial.Color;
         }
@@ -193,6 +203,20 @@ namespace Inpres_Map
             #endregion
 
             MainPictureBox.Invalidate();
+        }
+
+        private void optionToolStripMenu_Click(object sender, EventArgs e)
+        {
+            OptionFormWindow optionForm = new OptionFormWindow();
+            optionForm.Tag = this;
+            optionForm.Show(this);
+        }
+
+        public void majListeBox()
+        {
+            POILB.Refresh();
+            PolylineLB.Refresh();
+            PolygonLB.Refresh();
         }
     }
 }

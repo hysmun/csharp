@@ -55,6 +55,7 @@
             this.aboutItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
+            this.optionToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.MainToolStrip.SuspendLayout();
             this.MainMenu.SuspendLayout();
@@ -170,7 +171,7 @@
             this.CreationModeItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CreationModeItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.CreationModeItem.Name = "CreationModeItem";
-            this.CreationModeItem.Size = new System.Drawing.Size(181, 26);
+            this.CreationModeItem.Size = new System.Drawing.Size(173, 26);
             this.CreationModeItem.Text = "Création";
             this.CreationModeItem.Click += new System.EventHandler(this.CreationModeItem_Click);
             // 
@@ -178,7 +179,7 @@
             // 
             this.SelectionModeItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.SelectionModeItem.Name = "SelectionModeItem";
-            this.SelectionModeItem.Size = new System.Drawing.Size(181, 26);
+            this.SelectionModeItem.Size = new System.Drawing.Size(173, 26);
             this.SelectionModeItem.Text = "Selection";
             this.SelectionModeItem.Click += new System.EventHandler(this.SelectionModeItem_Click);
             // 
@@ -186,7 +187,7 @@
             // 
             this.DeplacementModeItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.DeplacementModeItem.Name = "DeplacementModeItem";
-            this.DeplacementModeItem.Size = new System.Drawing.Size(181, 26);
+            this.DeplacementModeItem.Size = new System.Drawing.Size(173, 26);
             this.DeplacementModeItem.Text = "Déplacement";
             this.DeplacementModeItem.Click += new System.EventHandler(this.DeplacementModeItem_Click);
             // 
@@ -264,6 +265,8 @@
             // 
             // toolsToolStripMenuItem
             // 
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.optionToolStripMenu});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.toolsToolStripMenuItem.Text = "Tools";
@@ -295,6 +298,13 @@
             this.MainMenu.TabIndex = 2;
             this.MainMenu.Text = "menuStrip1";
             // 
+            // optionToolStripMenu
+            // 
+            this.optionToolStripMenu.Name = "optionToolStripMenu";
+            this.optionToolStripMenu.Size = new System.Drawing.Size(181, 26);
+            this.optionToolStripMenu.Text = "Option";
+            this.optionToolStripMenu.Click += new System.EventHandler(this.optionToolStripMenu_Click);
+            // 
             // WindowPrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -312,6 +322,7 @@
             this.Controls.Add(this.MainPictureBox);
             this.MainMenuStrip = this.MainMenu;
             this.Name = "WindowPrincipale";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inpres-Map";
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).EndInit();
             this.MainToolStrip.ResumeLayout(false);
@@ -351,6 +362,7 @@
         private System.Windows.Forms.MenuStrip MainMenu;
         private System.Windows.Forms.ColorDialog ColorDialog;
         private System.Windows.Forms.ToolStripMenuItem aboutItem;
+        private System.Windows.Forms.ToolStripMenuItem optionToolStripMenu;
     }
 }
 
