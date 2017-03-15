@@ -211,7 +211,7 @@ namespace MyCartographyConsole
             }
             catch(Exception r)
             {
-                Console.WriteLine("ERREUR !!! ");
+                Console.WriteLine("ERREUR !!! "+r.ToString());
                 Console.ReadKey();
             }
         }

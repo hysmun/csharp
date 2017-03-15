@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MathUtilsLib;
 using System.Drawing;
+using System.ComponentModel;
+using System.Globalization;
 
 namespace MyCartographyObjects
 {
@@ -33,16 +35,21 @@ et affiche au maximum deux décimales.
         #endregion //VARIABLE MEMBRE
 
         #region PROPRIETES
+        [CategoryAttribute("Position"),
+        ReadOnlyAttribute(true)]
         public double Lat
         {
             get { return _lat; }
             set { _lat = value; }
         }
+        [CategoryAttribute("Position"), 
+        ReadOnlyAttribute(true)]
         public double Longitude
         {
             get { return _long; }
             set { _long = value; }
         }
+        [BrowsableAttribute(false)]
         public int NBRINS
         {
             get { return _NBRINS; }

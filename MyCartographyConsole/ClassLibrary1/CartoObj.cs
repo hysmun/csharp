@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MathUtilsLib;
 using System.Drawing;
+using System.ComponentModel;
+using System.Globalization;
 
 namespace MyCartographyObjects
 {
@@ -19,11 +21,13 @@ namespace MyCartographyObjects
         protected int _id;
         protected string _description;
         protected Color _couleur;
-        protected double _largeur=1;
+        protected double _largeur = 1;
         static protected double _precision; // une precision pour toutes les classes Cartography 
         #endregion //VARIABLE MEMBRE
 
         #region PROPRIETES
+        [CategoryAttribute("Global Settings"),
+        ReadOnlyAttribute(true)]
         public int Id
         {
             get { return _id; }
@@ -34,16 +38,19 @@ namespace MyCartographyObjects
             get { return _precision; }
             set { _precision = value; }
         }
+        [CategoryAttribute("Global Settings")]
         public string Description
         {
             get { return _description; }
             set { _description = value; }
         }
+        [CategoryAttribute("Global Settings")]
         public Color Couleur
         {
             get { return _couleur; }
             set { _couleur = value; }
         }
+        [CategoryAttribute("Global Settings")]
         public double Largeur
         {
             get { return _largeur; }

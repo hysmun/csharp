@@ -46,16 +46,17 @@
             this.POILB = new System.Windows.Forms.ListBox();
             this.PolylineLB = new System.Windows.Forms.ListBox();
             this.PolygonLB = new System.Windows.Forms.ListBox();
-            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.propertyGrid = new System.Windows.Forms.PropertyGrid();
             this.PolygonLabel = new System.Windows.Forms.Label();
             this.PolylineLabel = new System.Windows.Forms.Label();
             this.POIlabel = new System.Windows.Forms.Label();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
-            this.optionToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiniToolStripButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.MainToolStrip.SuspendLayout();
             this.MainMenu.SuspendLayout();
@@ -85,7 +86,8 @@
             this.CouleurLabelToolStrip,
             this.ColorButtonToolStrip,
             this.ModeToolStrip,
-            this.SupprimerButton});
+            this.SupprimerButton,
+            this.FiniToolStripButton});
             this.MainToolStrip.Location = new System.Drawing.Point(0, 28);
             this.MainToolStrip.Name = "MainToolStrip";
             this.MainToolStrip.Size = new System.Drawing.Size(1544, 27);
@@ -210,15 +212,18 @@
             this.POILB.Name = "POILB";
             this.POILB.Size = new System.Drawing.Size(252, 180);
             this.POILB.TabIndex = 3;
+            this.POILB.SelectedIndexChanged += new System.EventHandler(this.POILB_SelectedIndexChanged);
             // 
             // PolylineLB
             // 
+            this.PolylineLB.ForeColor = System.Drawing.SystemColors.MenuText;
             this.PolylineLB.FormattingEnabled = true;
             this.PolylineLB.ItemHeight = 16;
             this.PolylineLB.Location = new System.Drawing.Point(0, 279);
             this.PolylineLB.Name = "PolylineLB";
             this.PolylineLB.Size = new System.Drawing.Size(252, 164);
             this.PolylineLB.TabIndex = 4;
+            this.PolylineLB.SelectedIndexChanged += new System.EventHandler(this.PolylineLB_SelectedIndexChanged);
             // 
             // PolygonLB
             // 
@@ -228,13 +233,15 @@
             this.PolygonLB.Name = "PolygonLB";
             this.PolygonLB.Size = new System.Drawing.Size(252, 132);
             this.PolygonLB.TabIndex = 5;
+            this.PolygonLB.SelectedIndexChanged += new System.EventHandler(this.PolygonLB_SelectedIndexChanged);
             // 
-            // propertyGrid1
+            // propertyGrid
             // 
-            this.propertyGrid1.Location = new System.Drawing.Point(0, 604);
-            this.propertyGrid1.Name = "propertyGrid1";
-            this.propertyGrid1.Size = new System.Drawing.Size(252, 227);
-            this.propertyGrid1.TabIndex = 6;
+            this.propertyGrid.Location = new System.Drawing.Point(0, 604);
+            this.propertyGrid.Name = "propertyGrid";
+            this.propertyGrid.Size = new System.Drawing.Size(252, 227);
+            this.propertyGrid.TabIndex = 6;
+            this.propertyGrid.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.propertyGrid_PropertyValueChanged);
             // 
             // PolygonLabel
             // 
@@ -271,6 +278,13 @@
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(57, 24);
             this.toolsToolStripMenuItem.Text = "Tools";
             // 
+            // optionToolStripMenu
+            // 
+            this.optionToolStripMenu.Name = "optionToolStripMenu";
+            this.optionToolStripMenu.Size = new System.Drawing.Size(130, 26);
+            this.optionToolStripMenu.Text = "Option";
+            this.optionToolStripMenu.Click += new System.EventHandler(this.optionToolStripMenu_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -298,12 +312,16 @@
             this.MainMenu.TabIndex = 2;
             this.MainMenu.Text = "menuStrip1";
             // 
-            // optionToolStripMenu
+            // FiniToolStripButton
             // 
-            this.optionToolStripMenu.Name = "optionToolStripMenu";
-            this.optionToolStripMenu.Size = new System.Drawing.Size(181, 26);
-            this.optionToolStripMenu.Text = "Option";
-            this.optionToolStripMenu.Click += new System.EventHandler(this.optionToolStripMenu_Click);
+            this.FiniToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.FiniToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("FiniToolStripButton.Image")));
+            this.FiniToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FiniToolStripButton.Name = "FiniToolStripButton";
+            this.FiniToolStripButton.Size = new System.Drawing.Size(36, 24);
+            this.FiniToolStripButton.Text = "Fini";
+            this.FiniToolStripButton.Visible = false;
+            this.FiniToolStripButton.Click += new System.EventHandler(this.FiniToolStripButton_Click);
             // 
             // WindowPrincipale
             // 
@@ -313,13 +331,14 @@
             this.Controls.Add(this.POIlabel);
             this.Controls.Add(this.PolylineLabel);
             this.Controls.Add(this.PolygonLabel);
-            this.Controls.Add(this.propertyGrid1);
+            this.Controls.Add(this.propertyGrid);
             this.Controls.Add(this.PolygonLB);
             this.Controls.Add(this.PolylineLB);
             this.Controls.Add(this.POILB);
             this.Controls.Add(this.MainToolStrip);
             this.Controls.Add(this.MainMenu);
             this.Controls.Add(this.MainPictureBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MainMenu;
             this.Name = "WindowPrincipale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -338,10 +357,7 @@
 
         private System.Windows.Forms.PictureBox MainPictureBox;
         private System.Windows.Forms.ToolStrip MainToolStrip;
-        private System.Windows.Forms.ListBox POILB;
-        private System.Windows.Forms.ListBox PolylineLB;
-        private System.Windows.Forms.ListBox PolygonLB;
-        private System.Windows.Forms.PropertyGrid propertyGrid1;
+        private System.Windows.Forms.PropertyGrid propertyGrid;
         private System.Windows.Forms.ToolStripButton POIButton;
         private System.Windows.Forms.ToolStripButton PolylineButton;
         private System.Windows.Forms.ToolStripButton PolygonButton;
@@ -363,6 +379,10 @@
         private System.Windows.Forms.ColorDialog ColorDialog;
         private System.Windows.Forms.ToolStripMenuItem aboutItem;
         private System.Windows.Forms.ToolStripMenuItem optionToolStripMenu;
+        private System.Windows.Forms.ListBox PolylineLB;
+        private System.Windows.Forms.ListBox PolygonLB;
+        private System.Windows.Forms.ToolStripButton FiniToolStripButton;
+        private System.Windows.Forms.ListBox POILB;
     }
 }
 

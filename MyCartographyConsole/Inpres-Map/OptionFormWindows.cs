@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MyCartographyObjects;
 
 namespace Inpres_Map
 {
     public partial class OptionFormWindow : Form
     {
         //string textAide = "Option ";
-        WindowPrincipale winPrincipale;
 
         public OptionFormWindow()
         {
             InitializeComponent();
-            winPrincipale = (WindowPrincipale)Tag;
             ColorButtonTool.BackColor = WindowPrincipale.couleurGlobal;
+            numericOption.Value = (decimal) WindowPrincipale.precisionGlobal;
         }
 
         private void ColorButtonTool_Click(object sender, EventArgs e)
@@ -34,7 +34,6 @@ namespace Inpres_Map
 
         private void OKButtonOption_Click(object sender, EventArgs e)
         {
-            winPrincipale.majListeBox();
             this.Close();
         }
 
@@ -46,7 +45,7 @@ namespace Inpres_Map
 
         private void CancelButtonOption_Click(object sender, EventArgs e)
         {
-
-        }
+            this.Close();
+        }  
     }
 }

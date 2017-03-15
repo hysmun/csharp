@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MathUtilsLib;
 using System.Drawing;
+using System.ComponentModel;
+using System.Globalization;
 
 namespace MyCartographyObjects
 {
@@ -27,16 +29,20 @@ concernant la polyline dans la console
         #endregion //VARIABLE MEMBRE
 
         #region PROPRIETES
+        [BrowsableAttribute(false)]
         public List<POI> LPOI
         {
             get { return _lPOI; }
             set { _lPOI = value; }
         }
+        [BrowsableAttribute(false)]
         public int NBRINS
         {
             get { return _NBRINS; }
             set { _NBRINS = value; }
         }
+        [CategoryAttribute("Info"),
+        ReadOnlyAttribute(true)]
         public int NbPoints
         {
             get
@@ -44,6 +50,8 @@ concernant la polyline dans la console
                 return LPOI.Count();
             }
         }
+        [CategoryAttribute("Info"),
+        ReadOnlyAttribute(true)]
         public double Longueur
         {
             // donne la longueur de la polyline 
@@ -58,6 +66,8 @@ concernant la polyline dans la console
                 return ret;
             }
         }
+        [CategoryAttribute("Info"),
+        ReadOnlyAttribute(true)]
         public double BoudingBox
         {
             // donne l'aire de la boudingBox de la polyline
@@ -95,7 +105,6 @@ concernant la polyline dans la console
         #region CONSTRUCTEURS
         public Polyline()
         {
-            Description = "Polyline";
             NextId();
             LPOI = new List<POI>();
         }
@@ -104,6 +113,14 @@ concernant la polyline dans la console
             NextId();
             LPOI = new List<POI>();
             LPOI.Add(pPOI);
+        }
+        public Polyline(string pDesciption, Color pCouleur, double pLargeur)
+        {
+            NextId();
+            LPOI = new List<POI>();
+            Description = pDesciption;
+            Couleur = pCouleur;
+            Largeur = pLargeur;
         }
         #endregion //CONSTRUCTEURS
 

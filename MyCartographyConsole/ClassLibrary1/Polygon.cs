@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MathUtilsLib;
 using System.Drawing;
+using System.ComponentModel;
+using System.Globalization;
 
 namespace MyCartographyObjects
 {
@@ -27,20 +29,25 @@ concernant l’objet polygon dans la console
         #endregion //VARIABLE MEMBRE
 
         #region PROPRIETES
+        [BrowsableAttribute(false)]
         public int NBRINS
         {
             get { return _NBRINS; }
             set { _NBRINS = value; }
         }
+        [BrowsableAttribute(false)]
         public List<Polyline> LPolyline
         {
             get { return _lPolyline; }
             set { _lPolyline = value; }
         }
+        [BrowsableAttribute(false)]
         public int NbPoints
         {
             get
             {
+                if (LPolyline.Count() < 1)
+                    return 0;
                 int ret = 0;
                 int i = 0;
                 ret = LPolyline[0].NbPoints;
@@ -54,7 +61,6 @@ concernant l’objet polygon dans la console
                 }
                 if(LPolyline.Count() > 1)
                 {
-                    ret += LPolyline[i].NbPoints;
                     if (LPolyline[i].LPOI[LPolyline[i].NbPoints - 1].Id == LPolyline[0].LPOI[0].Id)
                     {
                         ret -= 1;
@@ -68,7 +74,6 @@ concernant l’objet polygon dans la console
         #region CONSTRUCTEURS
         public Polygon()
         {
-            Description = "Polygon";
             NextId();
             LPolyline = new List<Polyline>();
         }
@@ -77,6 +82,14 @@ concernant l’objet polygon dans la console
             NextId();
             LPolyline = new List<Polyline>();
             LPolyline.Add(pPolyline);
+        }
+        public Polygon(string pDesciption, Color pCouleur, double pLargeur)
+        {
+            NextId();
+            LPolyline = new List<Polyline>();
+            Description = pDesciption;
+            Couleur = pCouleur;
+            Largeur = pLargeur;
         }
         #endregion //CONSTRUCTEURS
 
@@ -106,7 +119,22 @@ concernant l’objet polygon dans la console
         }
         public void Draw(Graphics g)
         {
-            throw new NotImplementedException();
+            PointF[] pointArray = new PointF[NbPoints];
+            int i = 0;
+            foreach(Polyline tmpPolyline in LPolyline)
+            {
+                foreach(POI tmpPOI in tmpPolyline.LPOI)
+                {
+                    pointArray[i] = new PointF((float)tmpPOI.Lat, (float)tmpPOI.Longitude);
+                    i++;
+                }
+            }
+            if(pointArray.Count<PointF>() < 1)
+            {
+                throw new Exception("Impossible de dessiner la polyline id : "+Id+" !");
+            }
+            else
+                g.FillPolygon(Brushes.Gray, pointArray, System.Drawing.Drawing2D.FillMode.Alternate);
         }
         #endregion //METHODES
     }
