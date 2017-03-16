@@ -57,7 +57,8 @@ namespace MyCartographyObjects
             get { return _couleur; }
             set { _couleur = value; }
         }
-        [CategoryAttribute("Global Settings")]
+        [CategoryAttribute("Global Settings"),
+        ReadOnlyAttribute(true)]
         public double Largeur
         {
             get { return _largeur; }

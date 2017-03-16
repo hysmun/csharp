@@ -41,7 +41,8 @@ concernant l’objet polygon dans la console
             get { return _lPolyline; }
             set { _lPolyline = value; }
         }
-        [BrowsableAttribute(false)]
+        [CategoryAttribute("info"),
+        BrowsableAttribute(true)]
         public int NbPoints
         {
             get

@@ -43,6 +43,7 @@
             this.SelectionModeItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeplacementModeItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SupprimerButton = new System.Windows.Forms.ToolStripButton();
+            this.FiniToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.POILB = new System.Windows.Forms.ListBox();
             this.PolylineLB = new System.Windows.Forms.ListBox();
             this.PolygonLB = new System.Windows.Forms.ListBox();
@@ -56,7 +57,6 @@
             this.aboutItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.ColorDialog = new System.Windows.Forms.ColorDialog();
-            this.FiniToolStripButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.MainPictureBox)).BeginInit();
             this.MainToolStrip.SuspendLayout();
             this.MainMenu.SuspendLayout();
@@ -201,6 +201,18 @@
             this.SupprimerButton.Name = "SupprimerButton";
             this.SupprimerButton.Size = new System.Drawing.Size(82, 24);
             this.SupprimerButton.Text = "Supprimer";
+            this.SupprimerButton.Click += new System.EventHandler(this.SupprimerButton_Click);
+            // 
+            // FiniToolStripButton
+            // 
+            this.FiniToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.FiniToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("FiniToolStripButton.Image")));
+            this.FiniToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FiniToolStripButton.Name = "FiniToolStripButton";
+            this.FiniToolStripButton.Size = new System.Drawing.Size(36, 24);
+            this.FiniToolStripButton.Text = "Fini";
+            this.FiniToolStripButton.Visible = false;
+            this.FiniToolStripButton.Click += new System.EventHandler(this.FiniToolStripButton_Click);
             // 
             // POILB
             // 
@@ -281,7 +293,7 @@
             // optionToolStripMenu
             // 
             this.optionToolStripMenu.Name = "optionToolStripMenu";
-            this.optionToolStripMenu.Size = new System.Drawing.Size(181, 26);
+            this.optionToolStripMenu.Size = new System.Drawing.Size(130, 26);
             this.optionToolStripMenu.Text = "Option";
             this.optionToolStripMenu.Click += new System.EventHandler(this.optionToolStripMenu_Click);
             // 
@@ -311,17 +323,6 @@
             this.MainMenu.Size = new System.Drawing.Size(1544, 28);
             this.MainMenu.TabIndex = 2;
             this.MainMenu.Text = "menuStrip1";
-            // 
-            // FiniToolStripButton
-            // 
-            this.FiniToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.FiniToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("FiniToolStripButton.Image")));
-            this.FiniToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.FiniToolStripButton.Name = "FiniToolStripButton";
-            this.FiniToolStripButton.Size = new System.Drawing.Size(36, 24);
-            this.FiniToolStripButton.Text = "Fini";
-            this.FiniToolStripButton.Visible = false;
-            this.FiniToolStripButton.Click += new System.EventHandler(this.FiniToolStripButton_Click);
             // 
             // WindowPrincipale
             // 

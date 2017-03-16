@@ -15,7 +15,7 @@ namespace Inpres_Map
     {
         #region Variable 
         //variable pour l'app
-        static public double precisionGlobal = 50.00;
+        static public double precisionGlobal = 10.00;
         static public double largeurGlobal = 2.00;
         static public Color couleurGlobal = Color.Blue;
 
@@ -33,18 +33,25 @@ namespace Inpres_Map
 
         public WindowPrincipale()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
 
-            // ListeBox
-            POILB.ForeColor = couleurGlobal;
-            PolylineLB.ForeColor = couleurGlobal;
-            PolygonLB.ForeColor = couleurGlobal;
-            POILB.DataSource = listePOI;
-            PolylineLB.DataSource = listePolyline;
-            PolygonLB.DataSource = listePolygon;
+                // ListeBox
+                POILB.ForeColor = couleurGlobal;
+                PolylineLB.ForeColor = couleurGlobal;
+                PolygonLB.ForeColor = couleurGlobal;
+                POILB.DataSource = listePOI;
+                PolylineLB.DataSource = listePolyline;
+                PolygonLB.DataSource = listePolygon;
 
-            //
-            CreationModeItem.Checked = true;
+                //
+                CreationModeItem.Checked = true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("init Fenetre principale\n" + e.Message);
+            }
         }
 
         private void ClickOnButtonColor(object sender, EventArgs e)
@@ -185,98 +192,183 @@ namespace Inpres_Map
             }
             catch(Exception e)
             {
-                string errorText = "Erreur dessin !!!\n"+e.Message;
-                MessageBox.Show(errorText);
+                MessageBox.Show("Erreur dessin !!!\n" + e.Message);
             }
         }
 
         private void MainPictureBox_MouseClick(object sender, MouseEventArgs e)
         {
-            #region Creation Nouveau item
-            if (CreationModeItem.Checked == true)
-            {
-                #region Nouveau POI
-                if (POIButton.Checked == true)
+            
+            try
+            {   
+                #region Creation Nouveau item
+                if (CreationModeItem.Checked == true)
                 {
-                    // nouveau POI
-                    POI newPOI = new POI(e.X, e.Y, DescriptionTB.Text, ColorButtonToolStrip.BackColor, largeurGlobal);
-                    listePOI.Add(newPOI);
-                    DescriptionTB.Text = "";
-                }
-                #endregion
-
-                #region Nouveau Polyline
-                if (PolylineButton.Checked == true)
-                {
-                    // nouveau Polyline
-                    if (tmpCreationPolyline == null)
+                    #region Nouveau POI
+                    if (POIButton.Checked == true)
                     {
-                        tmpCreationPolyline = new Polyline(DescriptionTB.Text, ColorButtonToolStrip.BackColor, largeurGlobal);
-                    }
-                    bool poiProche = false;
-                    int i;
-                    for (i = 0; i < listePOI.Count && poiProche == false; i++)
-                    {
-                        if (listePOI[i].IsPointClose(e.X, e.Y, precisionGlobal) == true)
-                        {
-                            poiProche = true;
-                        }
-                    }
-                    if (poiProche == true)
-                    {
-                        //on rajoute le point a l'indice i -1
-                        tmpCreationPolyline.LPOI.Add(listePOI[i - 1]);
-                    }
-                    else
-                    {
-                        //on cree un nouveau point
+                        // nouveau POI
                         POI newPOI = new POI(e.X, e.Y, DescriptionTB.Text, ColorButtonToolStrip.BackColor, largeurGlobal);
-                        tmpCreationPolyline.LPOI.Add(newPOI);
                         listePOI.Add(newPOI);
-                    }
-                }
-                #endregion
-
-                #region Nouveau Polygon
-                if (PolygonButton.Checked == true)
-                {
-                    // nouveau Polygon
-                    if (tmpCreationPolygon == null)
-                    {
-                        tmpCreationPolygon = new Polygon(DescriptionTB.Text, ColorButtonToolStrip.BackColor, largeurGlobal);
-                    }
-                    bool polylineProche = false;
-                    int i;
-                    for (i = 0; i < listePolyline.Count && polylineProche == false; i++)
-                    {
-                        if (listePolyline[i].IsPointClose(e.X, e.Y, precisionGlobal) == true)
-                        {
-                            polylineProche = true;
-                        }
-                    }
-                    if (polylineProche == true)
-                    {
-                        //on rajoute la Polyline l'indice i-1
-                        bool add = true;
-                        foreach(Polyline tmpPolyline in tmpCreationPolygon.LPolyline)
-                        {
-                            if(tmpPolyline.Id == listePolyline[i - 1].Id)
-                            {
-                                add = false;
-                            }
-                        }
-                        if(add == true)
-                            tmpCreationPolygon.LPolyline.Add(listePolyline[i - 1]);
-                    }
-                    else
-                    {
-                        //on cree une nouvelle polyline
+                        DescriptionTB.Text = "";
                     }
                     #endregion
+
+                    #region Nouveau Polyline
+                    if (PolylineButton.Checked == true)
+                    {
+                        // nouveau Polyline
+                        if (tmpCreationPolyline == null)
+                        {
+                            tmpCreationPolyline = new Polyline(DescriptionTB.Text, ColorButtonToolStrip.BackColor, largeurGlobal);
+                        }
+                        bool poiProche = false;
+                        int i;
+                        for (i = 0; i < listePOI.Count && poiProche == false; i++)
+                        {
+                            if (listePOI[i].IsPointClose(e.X, e.Y, precisionGlobal) == true)
+                            {
+                                poiProche = true;
+                            }
+                        }
+                        if (poiProche == true)
+                        {
+                            //on rajoute le point a l'indice i -1
+                            tmpCreationPolyline.LPOI.Add(listePOI[i - 1]);
+                        }
+                        else
+                        {
+                            //on cree un nouveau point
+                            POI newPOI = new POI(e.X, e.Y, DescriptionTB.Text, ColorButtonToolStrip.BackColor, largeurGlobal);
+                            tmpCreationPolyline.LPOI.Add(newPOI);
+                            listePOI.Add(newPOI);
+                        }
+                    }
+                    #endregion
+
+                    #region Nouveau Polygon
+                    if (PolygonButton.Checked == true)
+                    {
+                        // nouveau Polygon
+                        if (tmpCreationPolygon == null)
+                        {
+                            tmpCreationPolygon = new Polygon(DescriptionTB.Text, ColorButtonToolStrip.BackColor, largeurGlobal);
+                        }
+                        bool polylineProche = false;
+                        int i;
+                        for (i = 0; i < listePolyline.Count && polylineProche == false; i++)
+                        {
+                            if (listePolyline[i].IsPointClose(e.X, e.Y, precisionGlobal) == true)
+                            {
+                                polylineProche = true;
+                            }
+                        }
+                        if (polylineProche == true)
+                        {
+                            //on rajoute la Polyline l'indice i-1
+                            bool add = true;
+                            foreach (Polyline tmpPolyline in tmpCreationPolygon.LPolyline)
+                            {
+                                if (tmpPolyline.Id == listePolyline[i - 1].Id)
+                                {
+                                    add = false;
+                                }
+                            }
+                            if (add == true)
+                                tmpCreationPolygon.LPolyline.Add(listePolyline[i - 1]);
+                        }
+                        else
+                        {
+                            //on cree une nouvelle polyline
+                        }
+                        #endregion
+                    }
+                    
                 }
-                #endregion 
+                #endregion
+
+                #region Selection mode item
+                if(SelectionModeItem.Checked == true)
+                {
+                    //
+                    int i;
+                    bool cartoObjProche = false;
+                    for(i=0; i < listePOI.Count && cartoObjProche == false; i++)
+                    {
+                        if(listePOI[i].IsPointClose(e.X, e.Y, precisionGlobal) == true)
+                        {
+                            cartoObjProche = true;    
+                        }
+                    }
+                    if(cartoObjProche == true)
+                    {
+                        if (propertyGrid.SelectedObject != null)
+                            (propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
+                        propertyGrid.SelectedObject = listePOI[i-1];
+                        (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+                    }
+                    else
+                    {
+                        //faut verifier les polyline et polygon avant
+                        cartoObjProche = false;
+                        for (i = 0; i < listePolyline.Count && cartoObjProche == false; i++)
+                        {
+                            if (listePolyline[i].IsPointClose(e.X, e.Y, precisionGlobal) == true)
+                            {
+                                cartoObjProche = true;
+                            }
+                        }
+                        if (cartoObjProche == true)
+                        {
+                            if (propertyGrid.SelectedObject != null)
+                                (propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
+                            propertyGrid.SelectedObject = listePolyline[i - 1];
+                            (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+                        }
+                        else
+                        {
+                            //faut verifier les polygon mtn
+                            cartoObjProche = false;
+                            for (i = 0; i < listePolygon.Count && cartoObjProche == false; i++)
+                            {
+                                if (listePolygon[i].IsPointClose(e.X, e.Y, precisionGlobal) == true)
+                                {
+                                    cartoObjProche = true;
+                                }
+                            }
+                            if (cartoObjProche == true)
+                            {
+                                if (propertyGrid.SelectedObject != null)
+                                    (propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
+                                propertyGrid.SelectedObject = listePolygon[i - 1];
+                                (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+                            }
+                        }
+                    }
+                    
+                }
+                #endregion
+
+                #region Deplacement mode item
+                if (DeplacementModeItem.Checked == true)
+                {
+                    if(propertyGrid.SelectedObject != null)
+                    {
+                        if(propertyGrid.SelectedObject is POI)
+                        {
+                            (propertyGrid.SelectedObject as POI).Lat = e.X;
+                            (propertyGrid.SelectedObject as POI).Longitude = e.Y;
+                        }
+                    }
+                }
+                #endregion
+
+                MainPictureBox.Invalidate();
             }
-            MainPictureBox.Invalidate();
+            catch (Exception eE)
+            {
+                MessageBox.Show("Erreur dessin !!!\n" + eE.Message);
+            }
         }
 
         private void optionToolStripMenu_Click(object sender, EventArgs e)
@@ -305,24 +397,59 @@ namespace Inpres_Map
             MainPictureBox.Invalidate();
         }
 
-        private void POILB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            propertyGrid.SelectedObject = POILB.SelectedItem;
-        }
-
         private void propertyGrid_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
         {
             MainPictureBox.Invalidate();
         }
 
+        #region SelectedIndex POI, polylin, polygon
+        private void POILB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (propertyGrid.SelectedObject != null)
+                (propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
+            propertyGrid.SelectedObject = POILB.SelectedItem;
+            (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+            MainPictureBox.Invalidate();
+        }
+            
         private void PolylineLB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (propertyGrid.SelectedObject != null)
+                (propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
             propertyGrid.SelectedObject = PolylineLB.SelectedItem;
+            (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+            MainPictureBox.Invalidate();
         }
 
         private void PolygonLB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if (propertyGrid.SelectedObject != null)
+                //(propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
             propertyGrid.SelectedObject = PolygonLB.SelectedItem;
+            //(propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+            MainPictureBox.Invalidate();
+        }
+        #endregion
+
+        private void SupprimerButton_Click(object sender, EventArgs e)
+        {
+            if(propertyGrid.SelectedObject != null)
+            {
+                if(propertyGrid.SelectedObject is POI)
+                {
+                    listePOI.Remove(propertyGrid.SelectedObject as POI);
+                }
+                if (propertyGrid.SelectedObject is Polyline)
+                {
+                    listePolyline.Remove(propertyGrid.SelectedObject as Polyline);
+                }
+                if (propertyGrid.SelectedObject is Polygon)
+                {
+                    listePolygon.Remove(propertyGrid.SelectedObject as Polygon);
+                }
+                propertyGrid.SelectedObject = null;
+                MainPictureBox.Invalidate();
+            }
         }
     }
 }
