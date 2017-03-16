@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OptionFormWindow));
             this.PrecisionLabelTool = new System.Windows.Forms.Label();
             this.CouleurLabelTool = new System.Windows.Forms.Label();
             this.numericOption = new System.Windows.Forms.NumericUpDown();
@@ -66,6 +67,11 @@
             0,
             65536});
             this.numericOption.Location = new System.Drawing.Point(92, 55);
+            this.numericOption.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.numericOption.Name = "numericOption";
             this.numericOption.Size = new System.Drawing.Size(120, 22);
             this.numericOption.TabIndex = 2;
@@ -133,6 +139,7 @@
             this.Controls.Add(this.numericOption);
             this.Controls.Add(this.CouleurLabelTool);
             this.Controls.Add(this.PrecisionLabelTool);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OptionFormWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Option";

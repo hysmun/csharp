@@ -1,0 +1,4 @@
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MathUtilsLib\bin\Release\MathUtilsLib.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MathUtilsLib\bin\Release\MathUtilsLib.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MathUtilsLib\obj\Release\MathUtilsLib.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MathUtilsLib\obj\Release\MathUtilsLib.pdb

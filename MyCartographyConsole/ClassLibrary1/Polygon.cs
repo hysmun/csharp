@@ -132,7 +132,7 @@ concernant l’objet polygon dans la console
             }
             if(pointArray.Count<PointF>() < 1)
             {
-                throw new Exception("Impossible de dessiner la polyline id : "+Id+" !");
+                throw new Exception("Impossible de dessiner la polygon id : "+Id+" !");
             }
             else
                 g.FillPolygon(Brushes.Gray, pointArray, System.Drawing.Drawing2D.FillMode.Alternate);
