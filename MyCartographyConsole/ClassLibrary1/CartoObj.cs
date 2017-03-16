@@ -15,7 +15,7 @@ namespace MyCartographyObjects
  Un constructeur par défaut
  Une méthode abstraite Draw()
      */
-    abstract public class CartoObj
+    abstract public class CartoObj: INotifyPropertyChanged
     {
         #region VARIABLE MEMBRE
         protected int _id;
@@ -23,6 +23,8 @@ namespace MyCartographyObjects
         protected Color _couleur;
         protected double _largeur = 1;
         static protected double _precision; // une precision pour toutes les classes Cartography 
+
+        public event PropertyChangedEventHandler PropertyChanged;
         #endregion //VARIABLE MEMBRE
 
         #region PROPRIETES
@@ -42,7 +44,12 @@ namespace MyCartographyObjects
         public string Description
         {
             get { return _description; }
-            set { _description = value; }
+            set
+            {
+                _description = value;
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("Description"));
+            }
         }
         [CategoryAttribute("Global Settings")]
         public Color Couleur

@@ -281,7 +281,7 @@
             // optionToolStripMenu
             // 
             this.optionToolStripMenu.Name = "optionToolStripMenu";
-            this.optionToolStripMenu.Size = new System.Drawing.Size(130, 26);
+            this.optionToolStripMenu.Size = new System.Drawing.Size(181, 26);
             this.optionToolStripMenu.Text = "Option";
             this.optionToolStripMenu.Click += new System.EventHandler(this.optionToolStripMenu_Click);
             // 
