@@ -17,7 +17,8 @@ namespace Inpres_Map
         //variable pour l'app
         static public double precisionGlobal = 10.00;
         static public double largeurGlobal = 2.00;
-        static public Color couleurGlobal = Color.Blue;
+        static public Color couleurGlobal = Color.Black;
+        public bool descriptionInUse = false;
 
         //variable temporaire pour creation de Polyline et Polygon
         Polyline tmpCreationPolyline=null;
@@ -59,6 +60,8 @@ namespace Inpres_Map
             ColorDialog ColorDial = new ColorDialog();
             ColorDial.AllowFullOpen = false;
             ColorDial.ShowHelp = true;
+            ColorDial.AnyColor = true;
+            ColorDial.AllowFullOpen = true;
             ColorDial.Color = ColorButtonToolStrip.BackColor;
             if (ColorDial.ShowDialog() == DialogResult.OK)
                 ColorButtonToolStrip.BackColor = ColorDial.Color;
@@ -407,26 +410,35 @@ namespace Inpres_Map
         {
             if (propertyGrid.SelectedObject != null)
                 (propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
-            propertyGrid.SelectedObject = POILB.SelectedItem;
-            (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+            if (POILB.SelectedItem != null)
+            {
+                propertyGrid.SelectedObject = POILB.SelectedItem;
+                (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+            }
             MainPictureBox.Invalidate();
         }
-            
+
         private void PolylineLB_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (propertyGrid.SelectedObject != null)
                 (propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
-            propertyGrid.SelectedObject = PolylineLB.SelectedItem;
-            (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+            if (PolylineLB.SelectedItem != null)
+            {
+                propertyGrid.SelectedObject = PolylineLB.SelectedItem;
+                (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+            }   
             MainPictureBox.Invalidate();
         }
 
         private void PolygonLB_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if (propertyGrid.SelectedObject != null)
-                //(propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
-            propertyGrid.SelectedObject = PolygonLB.SelectedItem;
-            //(propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+            //(propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
+            if (PolygonLB.SelectedItem != null)
+            {
+                propertyGrid.SelectedObject = PolygonLB.SelectedItem;
+                //(propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+            }
             MainPictureBox.Invalidate();
         }
         #endregion
@@ -451,5 +463,88 @@ namespace Inpres_Map
                 MainPictureBox.Invalidate();
             }
         }
+
+        private void WindowPrincipale_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (descriptionInUse == true)
+                return;
+            else
+            switch(e.KeyCode)
+            {
+                #region key Delete
+                case Keys.Delete:
+                {
+                    if (propertyGrid.SelectedObject != null)
+                    {
+                        if (propertyGrid.SelectedObject is POI)
+                        {
+                            listePOI.Remove(propertyGrid.SelectedObject as POI);
+                        }
+                        if (propertyGrid.SelectedObject is Polyline)
+                        {
+                            listePolyline.Remove(propertyGrid.SelectedObject as Polyline);
+                        }
+                        if (propertyGrid.SelectedObject is Polygon)
+                        {
+                            listePolygon.Remove(propertyGrid.SelectedObject as Polygon);
+                        }
+                        propertyGrid.SelectedObject = null;
+                    }
+                    break;
+                }
+                #endregion
+                #region key &
+                case Keys.D1:
+                {
+                    POIButton_Click(this, new EventArgs());
+                    break;
+                }
+                #endregion
+                #region key é
+                case Keys.D2:
+                {
+                    PolylineButton_Click(this, new EventArgs());
+                    break;
+                }
+                #endregion
+                #region key &
+                case Keys.D3:
+                {
+                    PolygonButton_Click(this, new EventArgs());
+                    break;
+                }
+                #endregion
+                #region key enter
+                case Keys.Space:
+                {
+                           // DescriptionLabel.Click();
+                    break;
+                }
+                #endregion
+            }
+            MainPictureBox.Invalidate();
+        }
+
+        #region Gestion racourcis avec InUse
+        private void DescriptionTB_Enter(object sender, EventArgs e)
+        {
+            descriptionInUse = true;
+        }
+
+        private void DescriptionTB_Leave(object sender, EventArgs e)
+        {
+            descriptionInUse = false;
+        }
+
+        private void propertyGrid_Leave(object sender, EventArgs e)
+        {
+           descriptionInUse = false;
+        }
+
+        private void propertyGrid_Enter(object sender, EventArgs e)
+        {
+            descriptionInUse = true;
+        }
+        #endregion
     }
 }

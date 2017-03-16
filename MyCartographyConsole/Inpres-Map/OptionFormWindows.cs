@@ -27,6 +27,8 @@ namespace Inpres_Map
             ColorDialog ColorDial = new ColorDialog();
             ColorDial.AllowFullOpen = false;
             ColorDial.ShowHelp = true;
+            ColorDial.AnyColor = true;
+            ColorDial.AllowFullOpen = true;
             ColorDial.Color = ColorButtonTool.BackColor;
             if (ColorDial.ShowDialog() == DialogResult.OK)
                 ColorButtonTool.BackColor = ColorDial.Color;
