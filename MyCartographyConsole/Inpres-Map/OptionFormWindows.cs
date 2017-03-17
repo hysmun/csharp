@@ -13,13 +13,15 @@ namespace Inpres_Map
 {
     public partial class OptionFormWindow : Form
     {
-        //string textAide = "Option ";
+        
+        
 
         public OptionFormWindow()
         {
             InitializeComponent();
             ColorButtonTool.BackColor = WindowPrincipale.couleurGlobal;
             numericOption.Value = (decimal) WindowPrincipale.precisionGlobal;
+            
         }
 
         private void ColorButtonTool_Click(object sender, EventArgs e)
@@ -36,6 +38,9 @@ namespace Inpres_Map
 
         private void OKButtonOption_Click(object sender, EventArgs e)
         {
+            /*if (MajOption != null)
+                MajOption(this, new EventArgs);*/
+            
             this.Close();
         }
 

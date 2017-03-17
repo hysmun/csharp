@@ -11,7 +11,7 @@ using MyCartographyObjects;
 
 namespace Inpres_Map
 {
-    public partial class WindowPrincipale : Form
+    public partial class WindowPrincipale : Form, INotifyPropertyChanged
     {
         #region Variable 
         //variable pour l'app
@@ -30,7 +30,15 @@ namespace Inpres_Map
         BindingList<Polygon> listePolygon = new BindingList<Polygon>();
 
         //evenement
+        public event PropertyChangedEventHandler PropertyChanged;
+          
         #endregion
+
+        public void OnMajOption(Object sender, EventArgs e)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs("Description"));
+        }
 
         public WindowPrincipale()
         {
@@ -46,7 +54,9 @@ namespace Inpres_Map
                 PolylineLB.DataSource = listePolyline;
                 PolygonLB.DataSource = listePolygon;
 
+                //MajOptionEventHandler += OnMajOption;
                 //
+                //PropertyChanged += 
                 CreationModeItem.Checked = true;
             }
             catch (Exception e)
