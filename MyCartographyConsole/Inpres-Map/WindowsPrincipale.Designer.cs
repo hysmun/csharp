@@ -133,7 +133,7 @@
             // 
             this.DescriptionLabel.Name = "DescriptionLabel";
             this.DescriptionLabel.Size = new System.Drawing.Size(85, 24);
-            this.DescriptionLabel.Text = "Descritpion";
+            this.DescriptionLabel.Text = "Description";
             // 
             // DescriptionTB
             // 
@@ -308,7 +308,7 @@
             // 
             this.optionToolStripMenu.Name = "optionToolStripMenu";
             this.optionToolStripMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.O)));
-            this.optionToolStripMenu.Size = new System.Drawing.Size(181, 26);
+            this.optionToolStripMenu.Size = new System.Drawing.Size(179, 26);
             this.optionToolStripMenu.Text = "Option";
             this.optionToolStripMenu.Click += new System.EventHandler(this.optionToolStripMenu_Click);
             // 
@@ -324,7 +324,7 @@
             // 
             this.aboutItem.Name = "aboutItem";
             this.aboutItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
-            this.aboutItem.Size = new System.Drawing.Size(181, 26);
+            this.aboutItem.Size = new System.Drawing.Size(173, 26);
             this.aboutItem.Text = "About";
             this.aboutItem.Click += new System.EventHandler(this.aboutItem_Click);
             // 

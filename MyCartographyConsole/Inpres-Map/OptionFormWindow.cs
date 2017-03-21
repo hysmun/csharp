@@ -9,19 +9,59 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyCartographyObjects;
 
-namespace Inpres_Map
+namespace Inpres_Map  
+    
+    
 {
+    public class ParamEventArgs
+    {
+        private double _precision;
+        private Color _couleur;
+
+        public double Precision
+        {
+            get
+            {
+                return _precision;
+            }
+
+            set
+            {
+                _precision = value;
+            }
+        }
+
+        public Color Couleur
+        {
+            get
+            {
+                return _couleur;
+            }
+
+            set
+            {
+                _couleur = value;
+            }
+        }
+
+        public ParamEventArgs(double pPrecision, Color pCouleur)
+        {
+            Precision = pPrecision;
+            Couleur = pCouleur;
+        }
+    }
+
+    public delegate void OptionChangedHandler(ParamEventArgs e);
+    
     public partial class OptionFormWindow : Form
     {
-        
-        
-
+        public event OptionChangedHandler OptionChanged;
+           
         public OptionFormWindow()
         {
             InitializeComponent();
             ColorButtonTool.BackColor = WindowPrincipale.couleurGlobal;
             numericOption.Value = (decimal) WindowPrincipale.precisionGlobal;
-            
         }
 
         private void ColorButtonTool_Click(object sender, EventArgs e)
@@ -38,9 +78,8 @@ namespace Inpres_Map
 
         private void OKButtonOption_Click(object sender, EventArgs e)
         {
-            /*if (MajOption != null)
-                MajOption(this, new EventArgs);*/
-            
+            if (OptionChanged != null)
+                OptionChanged( new ParamEventArgs((double)numericOption.Value, ColorButtonTool.BackColor));
             this.Close();
         }
 

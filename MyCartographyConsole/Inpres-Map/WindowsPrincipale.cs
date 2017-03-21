@@ -11,33 +11,36 @@ using MyCartographyObjects;
 
 namespace Inpres_Map
 {
-    public partial class WindowPrincipale : Form, INotifyPropertyChanged
+    public partial class WindowPrincipale : Form
     {
         #region Variable 
-        //variable pour l'app
+        #region variable pour l'app
         static public double precisionGlobal = 10.00;
         static public double largeurGlobal = 2.00;
         static public Color couleurGlobal = Color.Black;
         public bool descriptionInUse = false;
+        #endregion
 
-        //variable temporaire pour creation de Polyline et Polygon
-        Polyline tmpCreationPolyline=null;
+        #region variable temporaire pour creation de Polyline et Polygon
+        Polyline tmpCreationPolyline =null;
         Polygon tmpCreationPolygon=null;
+        int precX = 0, precY = 0;
+        #endregion
 
-        //BidingList
+        #region Declaration BidingList
         BindingList<POI> listePOI = new BindingList<POI>();
         BindingList<Polyline> listePolyline = new BindingList<Polyline>();
         BindingList<Polygon> listePolygon = new BindingList<Polygon>();
+        #endregion
 
         //evenement
-        public event PropertyChangedEventHandler PropertyChanged;
           
         #endregion
 
-        public void OnMajOption(Object sender, EventArgs e)
+        public void OnMajOption(ParamEventArgs e)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs("Description"));
+            precisionGlobal = e.Precision;
+            couleurGlobal = e.Couleur;
         }
 
         public WindowPrincipale()
@@ -54,9 +57,8 @@ namespace Inpres_Map
                 PolylineLB.DataSource = listePolyline;
                 PolygonLB.DataSource = listePolygon;
 
-                //MajOptionEventHandler += OnMajOption;
-                //
-                //PropertyChanged += 
+                //OptionFormWindow.OptionChanged += OnMajOption;
+
                 CreationModeItem.Checked = true;
             }
             catch (Exception e)
@@ -89,6 +91,8 @@ namespace Inpres_Map
         {
             if(CreationModeItem.Checked == false)
             {
+                precX = 0;
+                precY = 0;
                 CreationModeItem.Checked = true;
                 if (SelectionModeItem.Checked == true)
                     SelectionModeItem.Checked = false;
@@ -101,6 +105,8 @@ namespace Inpres_Map
         {
             if (SelectionModeItem.Checked == false)
             {
+                precX = 0;
+                precY = 0;
                 SelectionModeItem.Checked = true;
                 if (CreationModeItem.Checked == true)
                     CreationModeItem.Checked = false;
@@ -213,7 +219,8 @@ namespace Inpres_Map
         {
             
             try
-            {   
+            {
+                
                 #region Creation Nouveau item
                 if (CreationModeItem.Checked == true)
                 {
@@ -323,6 +330,7 @@ namespace Inpres_Map
                     else
                     {
                         //faut verifier les polyline et polygon avant
+                        
                         cartoObjProche = false;
                         for (i = 0; i < listePolyline.Count && cartoObjProche == false; i++)
                         {
@@ -337,6 +345,8 @@ namespace Inpres_Map
                                 (propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
                             propertyGrid.SelectedObject = listePolyline[i - 1];
                             (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
+                            precX = e.X;
+                            precY = e.Y;
                         }
                         else
                         {
@@ -376,6 +386,17 @@ namespace Inpres_Map
                         {
                             (propertyGrid.SelectedObject as POI).Lat = e.X;
                             (propertyGrid.SelectedObject as POI).Longitude = e.Y;
+                        }
+                        if(propertyGrid.SelectedObject is Polyline)
+                        {
+                            // calcule delta
+                            foreach(POI tmpPOI in (propertyGrid.SelectedObject as Polyline).LPOI)
+                            {
+                                tmpPOI.Lat = tmpPOI.Lat - (precX - e.X);
+                                tmpPOI.Longitude = tmpPOI.Longitude - (precY - e.Y);
+                            }
+                            precX = e.X;
+                            precY = e.Y;
                         }
                     }
                 }
@@ -499,17 +520,23 @@ namespace Inpres_Map
 
         private void SupprimerButton_Click(object sender, EventArgs e)
         {
-            if(propertyGrid.SelectedObject != null)
+            SupprimerCartoObj();
+        }
+
+        private void SupprimerCartoObj()
+        {
+            if (propertyGrid.SelectedObject != null)
             {
-                if(propertyGrid.SelectedObject is POI)
+                if (propertyGrid.SelectedObject is POI)
                 {
-                    foreach(Polyline tmpPolyline in listePolyline)
+                    foreach (Polyline tmpPolyline in listePolyline)
                     {
-                        foreach(POI tmpPoi in tmpPolyline.LPOI)
+                        foreach (POI tmpPoi in tmpPolyline.LPOI)
                         {
-                            if(tmpPoi.Id == (propertyGrid.SelectedObject as POI).Id)
+                            if (tmpPoi.Id == (propertyGrid.SelectedObject as POI).Id)
                             {
                                 tmpPolyline.LPOI.Remove(tmpPoi);
+                                break;
                             }
                         }
                     }
@@ -538,22 +565,7 @@ namespace Inpres_Map
                 #region key Delete
                 case Keys.Delete:
                 {
-                    if (propertyGrid.SelectedObject != null)
-                    {
-                        if (propertyGrid.SelectedObject is POI)
-                        {
-                            listePOI.Remove(propertyGrid.SelectedObject as POI);
-                        }
-                        if (propertyGrid.SelectedObject is Polyline)
-                        {
-                            listePolyline.Remove(propertyGrid.SelectedObject as Polyline);
-                        }
-                        if (propertyGrid.SelectedObject is Polygon)
-                        {
-                            listePolygon.Remove(propertyGrid.SelectedObject as Polygon);
-                        }
-                        propertyGrid.SelectedObject = null;
-                    }
+                    SupprimerCartoObj();
                     break;
                 }
                 #endregion
@@ -581,7 +593,7 @@ namespace Inpres_Map
                 #region key enter
                 case Keys.Space:
                 {
-                           // DescriptionLabel.Click();
+                            DescriptionTB.Focus();
                     break;
                 }
                 #endregion

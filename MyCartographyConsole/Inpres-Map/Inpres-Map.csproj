@@ -46,11 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OptionFormWindows.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OptionFormWindows.Designer.cs">
-      <DependentUpon>OptionFormWindows.cs</DependentUpon>
+    <Compile Include="OptionFormWindow.cs" />
+    <Compile Include="OptionFormWindow.Designer.cs">
+      <DependentUpon>OptionFormWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="WindowsPrincipale.cs">
       <SubType>Form</SubType>
@@ -60,8 +58,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="OptionFormWindows.resx">
-      <DependentUpon>OptionFormWindows.cs</DependentUpon>
+    <EmbeddedResource Include="OptionFormWindow.resx">
+      <DependentUpon>OptionFormWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WindowsPrincipale.resx">
       <DependentUpon>WindowsPrincipale.cs</DependentUpon>
