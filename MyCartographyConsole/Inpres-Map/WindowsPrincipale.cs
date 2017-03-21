@@ -356,6 +356,11 @@ namespace Inpres_Map
                                 propertyGrid.SelectedObject = listePolygon[i - 1];
                                 (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
                             }
+                            else
+                            {
+                                (propertyGrid.SelectedObject as CartoObj).Largeur -= 5;
+                                propertyGrid.SelectedObject = null;
+                            }
                         }
                     }
                     
@@ -376,6 +381,7 @@ namespace Inpres_Map
                 }
                 #endregion
 
+                unselectLB(0);
                 MainPictureBox.Invalidate();
             }
             catch (Exception eE)
@@ -422,6 +428,7 @@ namespace Inpres_Map
                 (propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
             if (POILB.SelectedItem != null)
             {
+                unselectLB(1);
                 propertyGrid.SelectedObject = POILB.SelectedItem;
                 (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
             }
@@ -434,6 +441,7 @@ namespace Inpres_Map
                 (propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
             if (PolylineLB.SelectedItem != null)
             {
+                unselectLB(2);
                 propertyGrid.SelectedObject = PolylineLB.SelectedItem;
                 (propertyGrid.SelectedObject as CartoObj).Largeur += 5;
             }   
@@ -446,10 +454,46 @@ namespace Inpres_Map
             //(propertyGrid.SelectedObject as CartoObj).Largeur = largeurGlobal;
             if (PolygonLB.SelectedItem != null)
             {
+                unselectLB(3);
                 propertyGrid.SelectedObject = PolygonLB.SelectedItem;
                 //(propertyGrid.SelectedObject as CartoObj).Largeur += 5;
             }
             MainPictureBox.Invalidate();
+        }
+        private void unselectLB(int pParam)
+        {
+            switch(pParam)
+            {
+                case 0:
+                    if(propertyGrid.SelectedObject is POI)
+                    {
+                        PolylineLB.SelectedItem = null;
+                        PolygonLB.SelectedItem = null;
+                    }
+                    if (propertyGrid.SelectedObject is Polyline)
+                    {
+                        POILB.SelectedItem = null;
+                        PolygonLB.SelectedItem = null;
+                    }
+                    if (propertyGrid.SelectedObject is Polygon)
+                    {
+                        PolylineLB.SelectedItem = null;
+                        POILB.SelectedItem = null;
+                    }
+                    break;
+                case 1:
+                    PolylineLB.SelectedItem = null;
+                    PolygonLB.SelectedItem = null;
+                    break;
+                case 2:
+                    POILB.SelectedItem = null;
+                    PolygonLB.SelectedItem = null;
+                    break;
+                case 3:
+                    PolylineLB.SelectedItem = null;
+                    POILB.SelectedItem = null;
+                    break;
+            }
         }
         #endregion
 
@@ -459,6 +503,16 @@ namespace Inpres_Map
             {
                 if(propertyGrid.SelectedObject is POI)
                 {
+                    foreach(Polyline tmpPolyline in listePolyline)
+                    {
+                        foreach(POI tmpPoi in tmpPolyline.LPOI)
+                        {
+                            if(tmpPoi.Id == (propertyGrid.SelectedObject as POI).Id)
+                            {
+                                tmpPolyline.LPOI.Remove(tmpPoi);
+                            }
+                        }
+                    }
                     listePOI.Remove(propertyGrid.SelectedObject as POI);
                 }
                 if (propertyGrid.SelectedObject is Polyline)
