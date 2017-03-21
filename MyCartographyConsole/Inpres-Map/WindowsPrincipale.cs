@@ -37,10 +37,13 @@ namespace Inpres_Map
           
         #endregion
 
-        public void OnMajOption(ParamEventArgs e)
+        private void OnMajOption(object sender, ParamEventArgs e)
         {
             precisionGlobal = e.Precision;
             couleurGlobal = e.Couleur;
+            POILB.ForeColor = couleurGlobal;
+            PolylineLB.ForeColor = couleurGlobal;
+            PolygonLB.ForeColor = couleurGlobal;
         }
 
         public WindowPrincipale()
@@ -56,8 +59,6 @@ namespace Inpres_Map
                 POILB.DataSource = listePOI;
                 PolylineLB.DataSource = listePolyline;
                 PolygonLB.DataSource = listePolygon;
-
-                //OptionFormWindow.OptionChanged += OnMajOption;
 
                 CreationModeItem.Checked = true;
             }
@@ -414,7 +415,7 @@ namespace Inpres_Map
         private void optionToolStripMenu_Click(object sender, EventArgs e)
         {
             OptionFormWindow optionForm = new OptionFormWindow();
-            optionForm.Tag = this;
+            optionForm.OptionChanged += OnMajOption;
             optionForm.Show(this);
         }
 

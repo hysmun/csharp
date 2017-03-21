@@ -11,4 +11,4 @@ D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\I
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres-Map.exe
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres-Map.pdb
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres_Map.WindowPrincipale.resources
-D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres_Map.ParamEventArgs.resources
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres_Map.OptionFormWindow.resources
