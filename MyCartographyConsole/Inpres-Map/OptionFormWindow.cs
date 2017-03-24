@@ -13,15 +13,20 @@ namespace Inpres_Map
 {
     public partial class OptionFormWindow : Form
     {
+        
+
+        public ParamEventArgs param;
         public event OptionChangedHandler OptionChanged;
            
         public OptionFormWindow()
         {
             InitializeComponent();
-            ColorButtonTool.BackColor = WindowPrincipale.couleurGlobal;
-            numericOption.Value = (decimal) WindowPrincipale.precisionGlobal;
         }
-
+        public OptionFormWindow(ParamEventArgs e) :this()
+        {
+            ColorButtonTool.BackColor = e.Couleur;
+            numericOption.Value = (decimal)e.Precision;
+        }
         private void ColorButtonTool_Click(object sender, EventArgs e)
         {
             ColorDialog ColorDial = new ColorDialog();

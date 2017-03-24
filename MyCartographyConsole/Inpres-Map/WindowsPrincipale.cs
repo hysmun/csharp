@@ -414,7 +414,7 @@ namespace Inpres_Map
 
         private void optionToolStripMenu_Click(object sender, EventArgs e)
         {
-            OptionFormWindow optionForm = new OptionFormWindow();
+            OptionFormWindow optionForm = new OptionFormWindow(new ParamEventArgs(precisionGlobal, couleurGlobal));
             optionForm.OptionChanged += OnMajOption;
             optionForm.Show(this);
         }
