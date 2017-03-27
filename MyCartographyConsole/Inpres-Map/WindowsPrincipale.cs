@@ -40,6 +40,7 @@ namespace Inpres_Map
         private void OnMajOption(object sender, ParamEventArgs e)
         {
             precisionGlobal = e.Precision;
+            CartoObj.Precision = precisionGlobal;
             couleurGlobal = e.Couleur;
             POILB.ForeColor = couleurGlobal;
             PolylineLB.ForeColor = couleurGlobal;
@@ -59,7 +60,7 @@ namespace Inpres_Map
                 POILB.DataSource = listePOI;
                 PolylineLB.DataSource = listePolyline;
                 PolygonLB.DataSource = listePolygon;
-
+                CartoObj.Precision = precisionGlobal;
                 CreationModeItem.Checked = true;
             }
             catch (Exception e)
@@ -83,8 +84,7 @@ namespace Inpres_Map
         private void aboutItem_Click(object sender, EventArgs e)
         {
             string aboutText = "Application Crée par Antoine Brajkovic, 2221\nFait en 2017 !\n";
-            MessageBox.Show(aboutText);
-
+            MessageBox.Show(aboutText); 
         }
 
         #region event boutton mode
@@ -217,11 +217,9 @@ namespace Inpres_Map
         }
 
         private void MainPictureBox_MouseClick(object sender, MouseEventArgs e)
-        {
-            
+        { 
             try
             {
-                
                 #region Creation Nouveau item
                 if (CreationModeItem.Checked == true)
                 {
