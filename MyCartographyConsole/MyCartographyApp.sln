@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathUtilsLib", "MathUtilsLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inpres-Map", "Inpres-Map\Inpres-Map.csproj", "{EEF3DFDA-3A32-45BD-B1E4-2E6757912E04}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripManagerProject", "TripManagerProject\TripManagerProject.csproj", "{D0A6085D-9918-46E5-80E6-11299E7CFAE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripManagerObjects", "TripManagerObjects\TripManagerObjects.csproj", "{475CCBAB-6DCA-4AC0-AB4F-8AA6E2495630}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{EEF3DFDA-3A32-45BD-B1E4-2E6757912E04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEF3DFDA-3A32-45BD-B1E4-2E6757912E04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEF3DFDA-3A32-45BD-B1E4-2E6757912E04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0A6085D-9918-46E5-80E6-11299E7CFAE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0A6085D-9918-46E5-80E6-11299E7CFAE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0A6085D-9918-46E5-80E6-11299E7CFAE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0A6085D-9918-46E5-80E6-11299E7CFAE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{475CCBAB-6DCA-4AC0-AB4F-8AA6E2495630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{475CCBAB-6DCA-4AC0-AB4F-8AA6E2495630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{475CCBAB-6DCA-4AC0-AB4F-8AA6E2495630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{475CCBAB-6DCA-4AC0-AB4F-8AA6E2495630}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

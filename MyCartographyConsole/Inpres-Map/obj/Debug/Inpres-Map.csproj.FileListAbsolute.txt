@@ -6,9 +6,9 @@ D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\bin\Debug\M
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\bin\Debug\MyCartographyObjects.pdb
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\bin\Debug\MathUtilsLib.pdb
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres-Map.csprojResolveAssemblyReference.cache
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres_Map.OptionFormWindow.resources
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres_Map.WindowPrincipale.resources
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres_Map.Properties.Resources.resources
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres-Map.csproj.GenerateResource.Cache
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres-Map.exe
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres-Map.pdb
-D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres_Map.WindowPrincipale.resources
-D:\programmation\C#\ecole\git\projet\MyCartographyConsole\Inpres-Map\obj\Debug\Inpres_Map.OptionFormWindow.resources

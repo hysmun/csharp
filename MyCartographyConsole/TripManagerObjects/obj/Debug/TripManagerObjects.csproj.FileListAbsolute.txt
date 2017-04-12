@@ -1,0 +1,9 @@
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerObjects\bin\Debug\TripManagerObjects.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerObjects\bin\Debug\TripManagerObjects.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerObjects\bin\Debug\MathUtilsLib.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerObjects\bin\Debug\MyCartographyObjects.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerObjects\bin\Debug\MyCartographyObjects.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerObjects\bin\Debug\MathUtilsLib.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerObjects\obj\Debug\TripManagerObjects.csprojResolveAssemblyReference.cache
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerObjects\obj\Debug\TripManagerObjects.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerObjects\obj\Debug\TripManagerObjects.pdb

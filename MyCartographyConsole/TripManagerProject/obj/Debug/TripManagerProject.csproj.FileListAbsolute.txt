@@ -1,0 +1,17 @@
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\TripManagerProject.exe.config
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\TripManagerProject.exe
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\TripManagerProject.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\GMap.NET.Core.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\GMap.NET.WindowsForms.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\MathUtilsLib.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\MyCartographyObjects.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\MyCartographyObjects.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\MathUtilsLib.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.csprojResolveAssemblyReference.cache
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.Properties.Resources.resources
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.csproj.GenerateResource.Cache
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.exe
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\TripManagerObjects.dll
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\TripManagerObjects.pdb
+D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.formPrincipale.resources
