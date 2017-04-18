@@ -8,3 +8,13 @@ D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\b
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\obj\Debug\MyCartographyConsole.csprojResolveAssemblyReference.cache
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\obj\Debug\MyCartographyConsole.exe
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\obj\Debug\MyCartographyConsole.pdb
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyConsole.exe.config
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyConsole.exe
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyConsole.pdb
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MathUtilsLib.dll
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyObjects.dll
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MyCartographyObjects.pdb
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\bin\Debug\MathUtilsLib.pdb
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\obj\Debug\MyCartographyConsole.csprojResolveAssemblyReference.cache
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\obj\Debug\MyCartographyConsole.exe
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\MyCartographyConsole\obj\Debug\MyCartographyConsole.pdb
