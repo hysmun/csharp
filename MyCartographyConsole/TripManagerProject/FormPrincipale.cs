@@ -15,6 +15,7 @@ namespace TripManagerProject
         public formPrincipale()
         {
             InitializeComponent();
+            //gmapWinPrincipale.
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
