@@ -287,8 +287,8 @@
             this.gmapWinPrincipale.LevelsKeepInMemmory = 5;
             this.gmapWinPrincipale.Location = new System.Drawing.Point(0, 0);
             this.gmapWinPrincipale.MarkersEnabled = true;
-            this.gmapWinPrincipale.MaxZoom = 2;
-            this.gmapWinPrincipale.MinZoom = 2;
+            this.gmapWinPrincipale.MaxZoom = 18;
+            this.gmapWinPrincipale.MinZoom = 0;
             this.gmapWinPrincipale.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
             this.gmapWinPrincipale.Name = "gmapWinPrincipale";
             this.gmapWinPrincipale.NegativeMode = false;
@@ -300,7 +300,8 @@
             this.gmapWinPrincipale.ShowTileGridLines = false;
             this.gmapWinPrincipale.Size = new System.Drawing.Size(748, 658);
             this.gmapWinPrincipale.TabIndex = 0;
-            this.gmapWinPrincipale.Zoom = 0D;
+            this.gmapWinPrincipale.Zoom = 13D;
+            this.gmapWinPrincipale.Load += new System.EventHandler(this.gmapWinPrincipale_Load);
             // 
             // formPrincipale
             // 
@@ -312,6 +313,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formPrincipale";
             this.Text = "Trip Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formPrincipale_FormClosing);
             this.principaleTB.ResumeLayout(false);
             this.principaleTB.PerformLayout();
             this.splitContainerPrincipale.Panel1.ResumeLayout(false);

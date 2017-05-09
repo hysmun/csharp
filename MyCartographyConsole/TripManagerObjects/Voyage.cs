@@ -1,5 +1,4 @@
-﻿using MyCartographyObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,50 +6,50 @@ using System.Threading.Tasks;
 
 namespace TripManagerObjects
 {
-    public class Trajet : TripObj
+    class Voyage: TripObj
     {
-        #region Variable
-        private DateTime _date;
-        private Polyline _polyline;
-        private List<Site> _lSite;
+        #region Variables
+        private string _libelle;
+        private DateTime _dateDebut;
+        private DateTime _dateFin;
         #endregion
         #region Proprietes
-        internal List<Site> LSite
+        public DateTime DateFin
         {
             get
             {
-                return _lSite;
+                return _dateFin;
             }
 
             set
             {
-                _lSite = value;
+                _dateFin = value;
             }
         }
 
-        public Polyline Polyline
+        public DateTime DateDebut
         {
             get
             {
-                return _polyline;
+                return _dateDebut;
             }
 
             set
             {
-                _polyline = value;
+                _dateDebut = value;
             }
         }
 
-        public DateTime Date
+        public string Libelle
         {
             get
             {
-                return _date;
+                return _libelle;
             }
 
             set
             {
-                _date = value;
+                _libelle = value;
             }
         }
         #endregion

@@ -1,5 +1,4 @@
-﻿using MyCartographyObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,23 +6,36 @@ using System.Threading.Tasks;
 
 namespace TripManagerObjects
 {
-    class Site: TripObj
+    public abstract class TripObj
     {
         #region Variables
-        private POI _position;
-        //photo
+        private int _id;
+        private String _description;
         #endregion
         #region Proprietes
-        public POI Position
+        public string Description
         {
             get
             {
-                return _position;
+                return _description;
             }
 
             set
             {
-                _position = value;
+                _description = value;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+
+            set
+            {
+                _id = value;
             }
         }
         #endregion
