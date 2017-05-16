@@ -98,7 +98,7 @@
             this.ChargerVoyMenuItem,
             this.EnregistrerVoyMenuItem});
             this.FichierMenuItem.Name = "FichierMenuItem";
-            this.FichierMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.FichierMenuItem.Size = new System.Drawing.Size(181, 26);
             this.FichierMenuItem.Text = "Fichier";
             // 
             // nouveauVoyMenuItem
@@ -106,6 +106,7 @@
             this.nouveauVoyMenuItem.Name = "nouveauVoyMenuItem";
             this.nouveauVoyMenuItem.Size = new System.Drawing.Size(207, 26);
             this.nouveauVoyMenuItem.Text = "Nouveau Voyage";
+            this.nouveauVoyMenuItem.Click += new System.EventHandler(this.nouveauVoyMenuItem_Click);
             // 
             // ChargerVoyMenuItem
             // 
@@ -124,19 +125,19 @@
             this.GestionMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.parametreGestionMenuItem});
             this.GestionMenuItem.Name = "GestionMenuItem";
-            this.GestionMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.GestionMenuItem.Size = new System.Drawing.Size(181, 26);
             this.GestionMenuItem.Text = "Gestion";
             // 
             // parametreGestionMenuItem
             // 
             this.parametreGestionMenuItem.Name = "parametreGestionMenuItem";
-            this.parametreGestionMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.parametreGestionMenuItem.Size = new System.Drawing.Size(181, 26);
             this.parametreGestionMenuItem.Text = "Paramètres";
             // 
             // AproposMenuItem
             // 
             this.AproposMenuItem.Name = "AproposMenuItem";
-            this.AproposMenuItem.Size = new System.Drawing.Size(161, 26);
+            this.AproposMenuItem.Size = new System.Drawing.Size(181, 26);
             this.AproposMenuItem.Text = "A propos ....";
             // 
             // gestionSiteDropDown
@@ -159,6 +160,7 @@
             this.AjoutSiteMenuItem.Name = "AjoutSiteMenuItem";
             this.AjoutSiteMenuItem.Size = new System.Drawing.Size(202, 26);
             this.AjoutSiteMenuItem.Text = "Ajouter un site";
+            this.AjoutSiteMenuItem.Click += new System.EventHandler(this.AjoutSiteMenuItem_Click);
             // 
             // enreSiteMenuItem
             // 
@@ -203,6 +205,7 @@
             this.AjoutTrajetMenuItem.Name = "AjoutTrajetMenuItem";
             this.AjoutTrajetMenuItem.Size = new System.Drawing.Size(229, 26);
             this.AjoutTrajetMenuItem.Text = "Ajouter un trajet";
+            this.AjoutTrajetMenuItem.Click += new System.EventHandler(this.AjoutTrajetMenuItem_Click);
             // 
             // ModifTrajetMenuItem
             // 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TripManagerObjects
 {
-    class Voyage: TripObj
+    public class Voyage: TripObj
     {
         #region Variables
         private string _libelle;

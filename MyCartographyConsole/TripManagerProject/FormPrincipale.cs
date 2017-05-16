@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TripManagerObjects;
 
@@ -13,7 +7,10 @@ namespace TripManagerProject
 {
     public partial class formPrincipale : Form
     {
-        public TripParamManager tripParam;
+        public static TripParamManager tripParam;
+        public static List<Site> lSite;
+        public static List<Trajet> lTrajet;
+        public static List<Voyage> lVoyage;
 
         public formPrincipale()
         {
@@ -50,6 +47,21 @@ namespace TripManagerProject
         private void formPrincipale_FormClosing(object sender, FormClosingEventArgs e)
         {
             tripParam.SaveRegistryParameter();
+        }
+
+        private void AjoutSiteMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AjoutTrajetMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nouveauVoyMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

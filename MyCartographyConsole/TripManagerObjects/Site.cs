@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TripManagerObjects
 {
-    class Site: TripObj
+    public class Site: TripObj
     {
         #region Variables
         private POI _position;
