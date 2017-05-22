@@ -54,6 +54,13 @@ namespace TripManagerObjects
         }
         #endregion
         #region Constructeur
+        public Voyage(string pDescription, string pLibelle, DateTime pDateDebut, DateTime pDateFin) : base()
+        {
+            Description = pDescription;
+            Libelle = pLibelle;
+            DateDebut = pDateDebut;
+            DateFin = pDateFin;
+        }
         #endregion
         #region Methodes
         #endregion

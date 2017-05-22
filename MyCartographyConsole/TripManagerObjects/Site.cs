@@ -28,8 +28,18 @@ namespace TripManagerObjects
         }
         #endregion
         #region Constructeur
+        public Site(string pDescription, string pDescriptionLongue, double pLat, double pLong): base()
+        {
+            Description = pDescriptionLongue;
+            Position = new POI(pLat, pLong);
+            Position.Description = pDescription;
+        }
         #endregion
         #region Methodes
+        public override string ToString()
+        {
+            return Id + " " + Position.Description + " " + Position.Lat + "," + Position.Longitude;
+        }
         #endregion
     }
 }

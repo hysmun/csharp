@@ -54,6 +54,7 @@
             this.trajetTV = new System.Windows.Forms.TreeView();
             this.siteLB = new System.Windows.Forms.ListBox();
             this.gmapWinPrincipale = new GMap.NET.WindowsForms.GMapControl();
+            this.FinirButton = new System.Windows.Forms.ToolStripButton();
             this.principaleTB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerPrincipale)).BeginInit();
             this.splitContainerPrincipale.Panel1.SuspendLayout();
@@ -71,7 +72,8 @@
             this.principaleTB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuDropDownMenu,
             this.gestionSiteDropDown,
-            this.GestionTrajetDropDown});
+            this.GestionTrajetDropDown,
+            this.FinirButton});
             this.principaleTB.Location = new System.Drawing.Point(0, 0);
             this.principaleTB.Name = "principaleTB";
             this.principaleTB.Size = new System.Drawing.Size(1128, 27);
@@ -131,7 +133,7 @@
             // parametreGestionMenuItem
             // 
             this.parametreGestionMenuItem.Name = "parametreGestionMenuItem";
-            this.parametreGestionMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.parametreGestionMenuItem.Size = new System.Drawing.Size(158, 26);
             this.parametreGestionMenuItem.Text = "Paramètres";
             // 
             // AproposMenuItem
@@ -305,6 +307,18 @@
             this.gmapWinPrincipale.TabIndex = 0;
             this.gmapWinPrincipale.Zoom = 13D;
             this.gmapWinPrincipale.Load += new System.EventHandler(this.gmapWinPrincipale_Load);
+            this.gmapWinPrincipale.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gmapWinPrincipale_MouseClick);
+            // 
+            // FinirButton
+            // 
+            this.FinirButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.FinirButton.Image = ((System.Drawing.Image)(resources.GetObject("FinirButton.Image")));
+            this.FinirButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FinirButton.Name = "FinirButton";
+            this.FinirButton.Size = new System.Drawing.Size(41, 24);
+            this.FinirButton.Text = "Finir";
+            this.FinirButton.Visible = false;
+            this.FinirButton.Click += new System.EventHandler(this.FinirButton_Click);
             // 
             // formPrincipale
             // 
@@ -359,6 +373,7 @@
         private System.Windows.Forms.ToolStripMenuItem SupTrajetMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ReordonnerTrajetMenuItem;
         private GMap.NET.WindowsForms.GMapControl gmapWinPrincipale;
+        private System.Windows.Forms.ToolStripButton FinirButton;
     }
 }
 

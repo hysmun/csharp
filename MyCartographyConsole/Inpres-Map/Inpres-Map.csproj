@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OptionFormWindow.cs" />
+    <Compile Include="OptionFormWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="OptionFormWindow.Designer.cs">
       <DependentUpon>OptionFormWindow.cs</DependentUpon>
     </Compile>

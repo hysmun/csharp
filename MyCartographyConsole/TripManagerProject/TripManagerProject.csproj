@@ -54,6 +54,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateSiteWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateSiteWindow.Designer.cs">
+      <DependentUpon>CreateSiteWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTrajetWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateTrajetWindow.Designer.cs">
+      <DependentUpon>CreateTrajetWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateVoyageWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateVoyageWindow.Designer.cs">
+      <DependentUpon>CreateVoyageWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +80,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CreateSiteWindow.resx">
+      <DependentUpon>CreateSiteWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateTrajetWindow.resx">
+      <DependentUpon>CreateTrajetWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateVoyageWindow.resx">
+      <DependentUpon>CreateVoyageWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipale.resx">
       <DependentUpon>FormPrincipale.cs</DependentUpon>
     </EmbeddedResource>

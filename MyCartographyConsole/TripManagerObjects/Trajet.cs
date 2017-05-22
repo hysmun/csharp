@@ -1,6 +1,7 @@
 ﻿using MyCartographyObjects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,10 +13,10 @@ namespace TripManagerObjects
         #region Variable
         private DateTime _date;
         private Polyline _polyline;
-        private List<Site> _lSite;
+        private BindingList<Site> _lSite;
         #endregion
         #region Proprietes
-        internal List<Site> LSite
+        public BindingList<Site> LSite
         {
             get
             {
@@ -55,8 +56,17 @@ namespace TripManagerObjects
         }
         #endregion
         #region Constructeur
+        public Trajet()
+        {
+            Polyline = new Polyline();
+            LSite = new BindingList<Site>();
+        }
         #endregion
         #region Methodes
+        public override string ToString()
+        {
+            return Id +" "+Description+" "+Date.Day+"/"+Date.Month;
+        }
         #endregion
     }
 }

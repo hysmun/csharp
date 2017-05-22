@@ -11,6 +11,7 @@ namespace TripManagerObjects
         #region Variables
         private int _id;
         private String _description;
+        private static int NBRID =0;
         #endregion
         #region Proprietes
         public string Description
@@ -40,6 +41,10 @@ namespace TripManagerObjects
         }
         #endregion
         #region Constructeur
+        public TripObj()
+        {
+            Id = NBRID++;
+        }
         #endregion
         #region Methodes
         #endregion

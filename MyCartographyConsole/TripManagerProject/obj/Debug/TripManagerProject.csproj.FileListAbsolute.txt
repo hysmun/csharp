@@ -16,8 +16,6 @@ D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\TripManagerObjects.pdb
 D:\programmation\C#\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.formPrincipale.resources
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\TripManagerProject.exe.config
-D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.exe
-D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.pdb
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\TripManagerProject.exe
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\TripManagerProject.pdb
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\GMap.NET.Core.dll
@@ -29,6 +27,11 @@ D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\MathUtilsLib.pdb
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\TripManagerObjects.pdb
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.csprojResolveAssemblyReference.cache
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.CreateSiteWindow.resources
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.CreateVoyageWindow.resources
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.formPrincipale.resources
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.Properties.Resources.resources
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.csproj.GenerateResource.Cache
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.exe
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.pdb
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\obj\Debug\TripManagerProject.CreateTrajetWindow.resources
