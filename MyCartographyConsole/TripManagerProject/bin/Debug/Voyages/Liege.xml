@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<Voyage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Description>Liege entre potes</Description>
+  <Id>2</Id>
+  <DateFin>2017-06-30T00:00:00</DateFin>
+  <DateDebut>0001-01-01T00:00:00</DateDebut>
+  <Libelle>Liege</Libelle>
+  <LTrajet>
+    <Trajet>
+      <Description>jour 1</Description>
+      <Id>3</Id>
+      <LSite>
+        <Site>
+          <Description>La cathédrale Saint-Paul de Liège fait partie du patrimoine religieux de Liège. Fondée au Xe siècle, elle est reconstruite du XIIIe au XVe siècle et restaurée au milieu du XIXe siècle. Elle devient cathédrale au XIXe siècle en raison de la destruction de la cathédrale Saint-Lambert en 1795.</Description>
+          <Id>1</Id>
+          <Position>
+            <Id>1</Id>
+            <Description>Cathedrale de liege</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.6403166835876</Lat>
+            <Longitude>5.57180643081665</Longitude>
+            <NBRINS>30</NBRINS>
+          </Position>
+          <Image>D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\Images\Liege_Cathedrale_StPaul.jpg</Image>
+        </Site>
+      </LSite>
+      <Polyline>
+        <Id>0</Id>
+        <Couleur />
+        <Largeur>1</Largeur>
+        <LPOI>
+          <POI>
+            <Id>16</Id>
+            <Description>POI</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.793783247910092</Lat>
+            <Longitude>5.192413330078125</Longitude>
+            <NBRINS>30</NBRINS>
+          </POI>
+          <POI>
+            <Id>17</Id>
+            <Description>POI</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.826758482363275</Lat>
+            <Longitude>5.57281494140625</Longitude>
+            <NBRINS>30</NBRINS>
+          </POI>
+          <POI>
+            <Id>18</Id>
+            <Description>POI</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.689498062399892</Lat>
+            <Longitude>5.80078125</Longitude>
+            <NBRINS>30</NBRINS>
+          </POI>
+        </LPOI>
+        <NBRINS>4</NBRINS>
+      </Polyline>
+      <Date>0001-01-01T00:00:00</Date>
+    </Trajet>
+    <Trajet>
+      <Description>jour 2</Description>
+      <Id>4</Id>
+      <LSite>
+        <Site>
+          <Description>L'Aquarium-Muséum de Liège permet au public de découvrir l'univers aquatique dans l'Institut de Zoologie. Il présente 2 500 poissons, invertébrés et reptiles, représentant environ 250 espèces dans une quarantaine de bassins. Fondé en 1962, il appartient à l'Université de Liège. Il accueillit en 1991 son millionième visiteur.</Description>
+          <Id>2</Id>
+          <Position>
+            <Id>3</Id>
+            <Description>Aquarium de liege</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.6387789353949</Lat>
+            <Longitude>5.57882308959961</Longitude>
+            <NBRINS>30</NBRINS>
+          </Position>
+          <Image>D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\Images\aqua.jpg</Image>
+        </Site>
+        <Site>
+          <Description>La cathédrale Saint-Paul de Liège fait partie du patrimoine religieux de Liège. Fondée au Xe siècle, elle est reconstruite du XIIIe au XVe siècle et restaurée au milieu du XIXe siècle. Elle devient cathédrale au XIXe siècle en raison de la destruction de la cathédrale Saint-Lambert en 1795.</Description>
+          <Id>1</Id>
+          <Position>
+            <Id>1</Id>
+            <Description>Cathedrale de liege</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.6403166835876</Lat>
+            <Longitude>5.57180643081665</Longitude>
+            <NBRINS>30</NBRINS>
+          </Position>
+          <Image>D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\Images\Liege_Cathedrale_StPaul.jpg</Image>
+        </Site>
+      </LSite>
+      <Polyline>
+        <Id>1</Id>
+        <Couleur />
+        <Largeur>1</Largeur>
+        <LPOI>
+          <POI>
+            <Id>19</Id>
+            <Description>POI</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.639010281258713</Lat>
+            <Longitude>5.354461669921875</Longitude>
+            <NBRINS>30</NBRINS>
+          </POI>
+          <POI>
+            <Id>20</Id>
+            <Description>POI</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.503819555217063</Lat>
+            <Longitude>5.357208251953125</Longitude>
+            <NBRINS>30</NBRINS>
+          </POI>
+          <POI>
+            <Id>21</Id>
+            <Description>POI</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.473238914409684</Lat>
+            <Longitude>5.607147216796875</Longitude>
+            <NBRINS>30</NBRINS>
+          </POI>
+          <POI>
+            <Id>22</Id>
+            <Description>POI</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.493336993684515</Lat>
+            <Longitude>5.8502197265625</Longitude>
+            <NBRINS>30</NBRINS>
+          </POI>
+          <POI>
+            <Id>23</Id>
+            <Description>POI</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.640752142960615</Lat>
+            <Longitude>5.925750732421875</Longitude>
+            <NBRINS>30</NBRINS>
+          </POI>
+        </LPOI>
+        <NBRINS>4</NBRINS>
+      </Polyline>
+      <Date>0001-01-01T00:00:00</Date>
+    </Trajet>
+    <Trajet>
+      <Description>jour 3</Description>
+      <Id>5</Id>
+      <LSite>
+        <Site>
+          <Description>L'Aquarium-Muséum de Liège permet au public de découvrir l'univers aquatique dans l'Institut de Zoologie. Il présente 2 500 poissons, invertébrés et reptiles, représentant environ 250 espèces dans une quarantaine de bassins. Fondé en 1962, il appartient à l'Université de Liège. Il accueillit en 1991 son millionième visiteur.</Description>
+          <Id>2</Id>
+          <Position>
+            <Id>3</Id>
+            <Description>Aquarium de liege</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.6387789353949</Lat>
+            <Longitude>5.57882308959961</Longitude>
+            <NBRINS>30</NBRINS>
+          </Position>
+          <Image>D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerProject\bin\Debug\Images\aqua.jpg</Image>
+        </Site>
+      </LSite>
+      <Polyline>
+        <Id>2</Id>
+        <Couleur />
+        <Largeur>1</Largeur>
+        <LPOI>
+          <POI>
+            <Id>24</Id>
+            <Description>POI</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.740800635025707</Lat>
+            <Longitude>5.697784423828125</Longitude>
+            <NBRINS>30</NBRINS>
+          </POI>
+          <POI>
+            <Id>25</Id>
+            <Description>POI</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.631171104657668</Lat>
+            <Longitude>5.5865478515625</Longitude>
+            <NBRINS>30</NBRINS>
+          </POI>
+          <POI>
+            <Id>26</Id>
+            <Description>POI</Description>
+            <Couleur />
+            <Largeur>1</Largeur>
+            <Lat>50.546599206214189</Lat>
+            <Longitude>5.48492431640625</Longitude>
+            <NBRINS>30</NBRINS>
+          </POI>
+        </LPOI>
+        <NBRINS>4</NBRINS>
+      </Polyline>
+      <Date>0001-01-01T00:00:00</Date>
+    </Trajet>
+  </LTrajet>
+</Voyage>

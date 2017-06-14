@@ -54,6 +54,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddSiteMarker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSiteMarker.Designer.cs">
+      <DependentUpon>AddSiteMarker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AProposForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AProposForm.Designer.cs">
+      <DependentUpon>AProposForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateSiteWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,14 +84,38 @@
     <Compile Include="CreateVoyageWindow.Designer.cs">
       <DependentUpon>CreateVoyageWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="debugForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="debugForm.Designer.cs">
+      <DependentUpon>debugForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPrincipale.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormPrincipale.Designer.cs">
       <DependentUpon>FormPrincipale.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListForm.Designer.cs">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ParamForm.Designer.cs">
+      <DependentUpon>ParamForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddSiteMarker.resx">
+      <DependentUpon>AddSiteMarker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AProposForm.resx">
+      <DependentUpon>AProposForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateSiteWindow.resx">
       <DependentUpon>CreateSiteWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,8 +125,17 @@
     <EmbeddedResource Include="CreateVoyageWindow.resx">
       <DependentUpon>CreateVoyageWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="debugForm.resx">
+      <DependentUpon>debugForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPrincipale.resx">
       <DependentUpon>FormPrincipale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListForm.resx">
+      <DependentUpon>ListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="paramForm.resx">
+      <DependentUpon>ParamForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

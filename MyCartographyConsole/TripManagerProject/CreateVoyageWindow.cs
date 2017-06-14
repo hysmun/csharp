@@ -24,19 +24,6 @@ namespace TripManagerProject
             DateFin = new DateTime();
         }
 
-        private void CreateVoyageWindow_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //formPrincipale.tmpVoyage = new Voyage(DescriptionTextBox.Text, LibelleTextBox.Text, DateDebut, DateFin);
-            try
-            {
-                formPrincipale.lVoyage.Add(new Voyage(DescriptionTextBox.Text, LibelleTextBox.Text, DateDebut, DateFin));
-            }
-            catch(Exception ex)
-            {
-             //
-            }
-        }
-
         private void calendarFin_DateSelected(object sender, DateRangeEventArgs e)
         {
             DateFin = e.Start;
@@ -45,6 +32,24 @@ namespace TripManagerProject
         private void calendarDebut_DateSelected(object sender, DateRangeEventArgs e)
         {
             DateDebut = e.Start;
+        }
+
+        private void okButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                formPrincipale.VoyageEnCours = new Voyage(DescriptionTextBox.Text, LibelleTextBox.Text, DateDebut, DateFin);
+            }
+            catch (Exception ex)
+            {
+                formPrincipale.writeDebug(ex.Message);
+            }
+            this.Close();
+        }
+
+        private void annulerButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

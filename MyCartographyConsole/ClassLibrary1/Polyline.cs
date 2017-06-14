@@ -7,6 +7,7 @@ using MathUtilsLib;
 using System.Drawing;
 using System.ComponentModel;
 using System.Globalization;
+using System.Xml.Serialization;
 
 namespace MyCartographyObjects
 {
@@ -21,9 +22,11 @@ namespace MyCartographyObjects
  La redéfinition de la méthode Draw() qui affiche les informations 
 concernant la polyline dans la console
      */
+     [Serializable]
     public class Polyline : CartoObj, IIsPointClose, IPointy, IComparable<Polyline>, IEquatable<Polyline>, IDrawable
     {
         #region VARIABLE MEMBRE
+        [XmlAttribute]
         private List<POI> _lPOI;
         static private int _NBRINS = 0;
         #endregion //VARIABLE MEMBRE

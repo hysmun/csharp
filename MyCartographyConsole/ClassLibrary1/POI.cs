@@ -7,6 +7,7 @@ using MathUtilsLib;
 using System.Drawing;
 using System.ComponentModel;
 using System.Globalization;
+using System.Xml.Serialization;
 
 namespace MyCartographyObjects
 {
@@ -26,10 +27,13 @@ ces variables sont déjà prévues pour,
  La surcharge de la méthode ToString() qui construit une chaîne de caractères 
 et affiche au maximum deux décimales.
      */
+     [Serializable]
     public class POI : CartoObj, IIsPointClose, IDrawable
     {
         #region VARIABLE MEMBRE
+        [XmlAttribute]
         private double _lat;
+        [XmlAttribute]
         private double _long;
         static private int _NBRINS = 0;
         #endregion //VARIABLE MEMBRE

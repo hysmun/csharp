@@ -15,6 +15,6 @@ D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerObjects
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerObjects\bin\Debug\GMap.NET.Core.dll
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerObjects\bin\Debug\MyCartographyObjects.pdb
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerObjects\bin\Debug\MathUtilsLib.pdb
+D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerObjects\obj\Debug\TripManagerObjects.csprojResolveAssemblyReference.cache
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerObjects\obj\Debug\TripManagerObjects.dll
 D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerObjects\obj\Debug\TripManagerObjects.pdb
-D:\programmation\Csharp\ecole\git\projet\MyCartographyConsole\TripManagerObjects\obj\Debug\TripManagerObjects.csprojResolveAssemblyReference.cache

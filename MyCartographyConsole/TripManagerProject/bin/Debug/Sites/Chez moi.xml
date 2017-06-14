@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Site xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Description>Moi, Antoine Brajkovic ben j'habite la</Description>
+  <Id>2</Id>
+  <Position>
+    <Id>31</Id>
+    <Description>Chez moi</Description>
+    <Couleur />
+    <Largeur>1</Largeur>
+    <Lat>50.7062971417919</Lat>
+    <Longitude>5.63933372497559</Longitude>
+    <NBRINS>30</NBRINS>
+  </Position>
+</Site>

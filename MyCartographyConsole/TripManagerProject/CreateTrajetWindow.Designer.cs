@@ -31,7 +31,7 @@
             this.DescriptionLabel = new System.Windows.Forms.Label();
             this.DateLabel = new System.Windows.Forms.Label();
             this.DateCalendar = new System.Windows.Forms.MonthCalendar();
-            this.DescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.DescriptionTB = new System.Windows.Forms.TextBox();
             this.OKButton = new System.Windows.Forms.Button();
             this.AnnulerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -62,12 +62,12 @@
             this.DateCalendar.TabIndex = 2;
             this.DateCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.DateCalendar_DateSelected);
             // 
-            // DescriptionTextBox
+            // DescriptionTB
             // 
-            this.DescriptionTextBox.Location = new System.Drawing.Point(97, 37);
-            this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(386, 22);
-            this.DescriptionTextBox.TabIndex = 3;
+            this.DescriptionTB.Location = new System.Drawing.Point(97, 37);
+            this.DescriptionTB.Name = "DescriptionTB";
+            this.DescriptionTB.Size = new System.Drawing.Size(386, 22);
+            this.DescriptionTB.TabIndex = 3;
             // 
             // OKButton
             // 
@@ -96,11 +96,12 @@
             this.ClientSize = new System.Drawing.Size(506, 376);
             this.Controls.Add(this.AnnulerButton);
             this.Controls.Add(this.OKButton);
-            this.Controls.Add(this.DescriptionTextBox);
+            this.Controls.Add(this.DescriptionTB);
             this.Controls.Add(this.DateCalendar);
             this.Controls.Add(this.DateLabel);
             this.Controls.Add(this.DescriptionLabel);
             this.Name = "CreateTrajetWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateTrajetWindow";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -112,7 +113,7 @@
         private System.Windows.Forms.Label DescriptionLabel;
         private System.Windows.Forms.Label DateLabel;
         private System.Windows.Forms.MonthCalendar DateCalendar;
-        private System.Windows.Forms.TextBox DescriptionTextBox;
+        private System.Windows.Forms.TextBox DescriptionTB;
         private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.Button AnnulerButton;
     }

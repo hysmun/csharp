@@ -7,6 +7,7 @@ using MathUtilsLib;
 using System.Drawing;
 using System.ComponentModel;
 using System.Globalization;
+using System.Xml.Serialization;
 
 namespace MyCartographyObjects
 {
@@ -15,12 +16,17 @@ namespace MyCartographyObjects
  Un constructeur par défaut
  Une méthode abstraite Draw()
      */
+     [Serializable]
     abstract public class CartoObj: INotifyPropertyChanged
     {
         #region VARIABLE MEMBRE
+        [XmlAttribute]
         protected int _id;
+        [XmlAttribute]
         protected string _description;
+        [XmlAttribute]
         protected Color _couleur;
+        [XmlAttribute]
         protected double _largeur = 1;
         static protected double _precision; // une precision pour toutes les classes Cartography 
 

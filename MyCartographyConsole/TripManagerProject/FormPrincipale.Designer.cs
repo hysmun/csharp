@@ -37,6 +37,7 @@
             this.EnregistrerVoyMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GestionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametreGestionMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AproposMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionSiteDropDown = new System.Windows.Forms.ToolStripDropDownButton();
             this.AjoutSiteMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,12 +50,13 @@
             this.ModifTrajetMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SupTrajetMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ReordonnerTrajetMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FinirButton = new System.Windows.Forms.ToolStripButton();
             this.splitContainerPrincipale = new System.Windows.Forms.SplitContainer();
             this.gaucheSplitContainer = new System.Windows.Forms.SplitContainer();
             this.trajetTV = new System.Windows.Forms.TreeView();
             this.siteLB = new System.Windows.Forms.ListBox();
             this.gmapWinPrincipale = new GMap.NET.WindowsForms.GMapControl();
-            this.FinirButton = new System.Windows.Forms.ToolStripButton();
+            this.voyageOpen = new System.Windows.Forms.OpenFileDialog();
             this.principaleTB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerPrincipale)).BeginInit();
             this.splitContainerPrincipale.Panel1.SuspendLayout();
@@ -115,17 +117,20 @@
             this.ChargerVoyMenuItem.Name = "ChargerVoyMenuItem";
             this.ChargerVoyMenuItem.Size = new System.Drawing.Size(207, 26);
             this.ChargerVoyMenuItem.Text = "Charger voyage";
+            this.ChargerVoyMenuItem.Click += new System.EventHandler(this.ChargerVoyMenuItem_Click);
             // 
             // EnregistrerVoyMenuItem
             // 
             this.EnregistrerVoyMenuItem.Name = "EnregistrerVoyMenuItem";
             this.EnregistrerVoyMenuItem.Size = new System.Drawing.Size(207, 26);
             this.EnregistrerVoyMenuItem.Text = "Enregistrer voyage";
+            this.EnregistrerVoyMenuItem.Click += new System.EventHandler(this.EnregistrerVoyMenuItem_Click);
             // 
             // GestionMenuItem
             // 
             this.GestionMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.parametreGestionMenuItem});
+            this.parametreGestionMenuItem,
+            this.listeToolStripMenuItem});
             this.GestionMenuItem.Name = "GestionMenuItem";
             this.GestionMenuItem.Size = new System.Drawing.Size(181, 26);
             this.GestionMenuItem.Text = "Gestion";
@@ -133,14 +138,23 @@
             // parametreGestionMenuItem
             // 
             this.parametreGestionMenuItem.Name = "parametreGestionMenuItem";
-            this.parametreGestionMenuItem.Size = new System.Drawing.Size(158, 26);
+            this.parametreGestionMenuItem.Size = new System.Drawing.Size(181, 26);
             this.parametreGestionMenuItem.Text = "Paramètres";
+            this.parametreGestionMenuItem.Click += new System.EventHandler(this.parametreGestionMenuItem_Click);
+            // 
+            // listeToolStripMenuItem
+            // 
+            this.listeToolStripMenuItem.Name = "listeToolStripMenuItem";
+            this.listeToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.listeToolStripMenuItem.Text = "Liste";
+            this.listeToolStripMenuItem.Click += new System.EventHandler(this.listeToolStripMenuItem_Click);
             // 
             // AproposMenuItem
             // 
             this.AproposMenuItem.Name = "AproposMenuItem";
             this.AproposMenuItem.Size = new System.Drawing.Size(181, 26);
             this.AproposMenuItem.Text = "A propos ....";
+            this.AproposMenuItem.Click += new System.EventHandler(this.AproposMenuItem_Click);
             // 
             // gestionSiteDropDown
             // 
@@ -169,24 +183,28 @@
             this.enreSiteMenuItem.Name = "enreSiteMenuItem";
             this.enreSiteMenuItem.Size = new System.Drawing.Size(202, 26);
             this.enreSiteMenuItem.Text = "Enregistrer un site";
+            this.enreSiteMenuItem.Click += new System.EventHandler(this.enreSiteMenuItem_Click);
             // 
             // ChargerSiteMenuItem
             // 
             this.ChargerSiteMenuItem.Name = "ChargerSiteMenuItem";
             this.ChargerSiteMenuItem.Size = new System.Drawing.Size(202, 26);
             this.ChargerSiteMenuItem.Text = "Charger les sites";
+            this.ChargerSiteMenuItem.Click += new System.EventHandler(this.ChargerSiteMenuItem_Click);
             // 
             // ModifSiteMenuItem
             // 
             this.ModifSiteMenuItem.Name = "ModifSiteMenuItem";
             this.ModifSiteMenuItem.Size = new System.Drawing.Size(202, 26);
             this.ModifSiteMenuItem.Text = "Modifier un site";
+            this.ModifSiteMenuItem.Click += new System.EventHandler(this.ModifSiteMenuItem_Click);
             // 
             // SupSiteMenuItem
             // 
             this.SupSiteMenuItem.Name = "SupSiteMenuItem";
             this.SupSiteMenuItem.Size = new System.Drawing.Size(202, 26);
             this.SupSiteMenuItem.Text = "Supprimer un site";
+            this.SupSiteMenuItem.Click += new System.EventHandler(this.SupSiteMenuItem_Click);
             // 
             // GestionTrajetDropDown
             // 
@@ -214,18 +232,32 @@
             this.ModifTrajetMenuItem.Name = "ModifTrajetMenuItem";
             this.ModifTrajetMenuItem.Size = new System.Drawing.Size(229, 26);
             this.ModifTrajetMenuItem.Text = "Modifier un trajet";
+            this.ModifTrajetMenuItem.Click += new System.EventHandler(this.ModifTrajetMenuItem_Click);
             // 
             // SupTrajetMenuItem
             // 
             this.SupTrajetMenuItem.Name = "SupTrajetMenuItem";
             this.SupTrajetMenuItem.Size = new System.Drawing.Size(229, 26);
             this.SupTrajetMenuItem.Text = "Supprimer un trajet";
+            this.SupTrajetMenuItem.Click += new System.EventHandler(this.SupTrajetMenuItem_Click);
             // 
             // ReordonnerTrajetMenuItem
             // 
             this.ReordonnerTrajetMenuItem.Name = "ReordonnerTrajetMenuItem";
             this.ReordonnerTrajetMenuItem.Size = new System.Drawing.Size(229, 26);
             this.ReordonnerTrajetMenuItem.Text = "Réordonner les trajets";
+            this.ReordonnerTrajetMenuItem.Click += new System.EventHandler(this.ReordonnerTrajetMenuItem_Click);
+            // 
+            // FinirButton
+            // 
+            this.FinirButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.FinirButton.Image = ((System.Drawing.Image)(resources.GetObject("FinirButton.Image")));
+            this.FinirButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FinirButton.Name = "FinirButton";
+            this.FinirButton.Size = new System.Drawing.Size(41, 24);
+            this.FinirButton.Text = "Finir";
+            this.FinirButton.Visible = false;
+            this.FinirButton.Click += new System.EventHandler(this.FinirButton_Click);
             // 
             // splitContainerPrincipale
             // 
@@ -240,7 +272,6 @@
             // splitContainerPrincipale.Panel2
             // 
             this.splitContainerPrincipale.Panel2.Controls.Add(this.gmapWinPrincipale);
-            this.splitContainerPrincipale.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainerPrincipale.Size = new System.Drawing.Size(1128, 658);
             this.splitContainerPrincipale.SplitterDistance = 376;
             this.splitContainerPrincipale.TabIndex = 2;
@@ -265,14 +296,20 @@
             // 
             // trajetTV
             // 
+            this.trajetTV.AllowDrop = true;
             this.trajetTV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.trajetTV.Location = new System.Drawing.Point(0, 0);
             this.trajetTV.Name = "trajetTV";
             this.trajetTV.Size = new System.Drawing.Size(376, 380);
             this.trajetTV.TabIndex = 0;
+            this.trajetTV.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.trajetTV_ItemDrag);
+            this.trajetTV.DragDrop += new System.Windows.Forms.DragEventHandler(this.trajetTV_DragDrop);
+            this.trajetTV.DragOver += new System.Windows.Forms.DragEventHandler(this.trajetTV_DragOver);
+            this.trajetTV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.trajetTV_KeyDown);
             // 
             // siteLB
             // 
+            this.siteLB.AllowDrop = true;
             this.siteLB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.siteLB.FormattingEnabled = true;
             this.siteLB.ItemHeight = 16;
@@ -280,6 +317,8 @@
             this.siteLB.Name = "siteLB";
             this.siteLB.Size = new System.Drawing.Size(376, 274);
             this.siteLB.TabIndex = 0;
+            this.siteLB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.siteLB_KeyDown);
+            this.siteLB.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.siteLB_MouseDoubleClick);
             // 
             // gmapWinPrincipale
             // 
@@ -294,7 +333,7 @@
             this.gmapWinPrincipale.MarkersEnabled = true;
             this.gmapWinPrincipale.MaxZoom = 18;
             this.gmapWinPrincipale.MinZoom = 0;
-            this.gmapWinPrincipale.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gmapWinPrincipale.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionWithoutCenter;
             this.gmapWinPrincipale.Name = "gmapWinPrincipale";
             this.gmapWinPrincipale.NegativeMode = false;
             this.gmapWinPrincipale.PolygonsEnabled = true;
@@ -305,20 +344,10 @@
             this.gmapWinPrincipale.ShowTileGridLines = false;
             this.gmapWinPrincipale.Size = new System.Drawing.Size(748, 658);
             this.gmapWinPrincipale.TabIndex = 0;
-            this.gmapWinPrincipale.Zoom = 13D;
+            this.gmapWinPrincipale.Zoom = 10D;
+            this.gmapWinPrincipale.OnMarkerClick += new GMap.NET.WindowsForms.MarkerClick(this.gmapWinPrincipale_OnMarkerClick);
             this.gmapWinPrincipale.Load += new System.EventHandler(this.gmapWinPrincipale_Load);
             this.gmapWinPrincipale.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gmapWinPrincipale_MouseClick);
-            // 
-            // FinirButton
-            // 
-            this.FinirButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.FinirButton.Image = ((System.Drawing.Image)(resources.GetObject("FinirButton.Image")));
-            this.FinirButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.FinirButton.Name = "FinirButton";
-            this.FinirButton.Size = new System.Drawing.Size(41, 24);
-            this.FinirButton.Text = "Finir";
-            this.FinirButton.Visible = false;
-            this.FinirButton.Click += new System.EventHandler(this.FinirButton_Click);
             // 
             // formPrincipale
             // 
@@ -329,6 +358,7 @@
             this.Controls.Add(this.principaleTB);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formPrincipale";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Trip Manager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formPrincipale_FormClosing);
             this.principaleTB.ResumeLayout(false);
@@ -351,7 +381,6 @@
         private System.Windows.Forms.ToolStrip principaleTB;
         private System.Windows.Forms.SplitContainer splitContainerPrincipale;
         private System.Windows.Forms.SplitContainer gaucheSplitContainer;
-        private System.Windows.Forms.TreeView trajetTV;
         private System.Windows.Forms.ListBox siteLB;
         private System.Windows.Forms.ToolStripDropDownButton menuDropDownMenu;
         private System.Windows.Forms.ToolStripMenuItem FichierMenuItem;
@@ -374,6 +403,9 @@
         private System.Windows.Forms.ToolStripMenuItem ReordonnerTrajetMenuItem;
         private GMap.NET.WindowsForms.GMapControl gmapWinPrincipale;
         private System.Windows.Forms.ToolStripButton FinirButton;
+        private System.Windows.Forms.ToolStripMenuItem listeToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog voyageOpen;
+        public System.Windows.Forms.TreeView trajetTV;
     }
 }
 

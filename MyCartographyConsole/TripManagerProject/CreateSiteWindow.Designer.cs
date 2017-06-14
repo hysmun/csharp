@@ -33,13 +33,16 @@
             this.LongitudeLabel = new System.Windows.Forms.Label();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.latitudeNumeric = new System.Windows.Forms.NumericUpDown();
-            this.LongitudeNumeric = new System.Windows.Forms.NumericUpDown();
+            this.longitudeNumeric = new System.Windows.Forms.NumericUpDown();
             this.DescriptionLongueLabel = new System.Windows.Forms.Label();
             this.DescriptionLongueTextBox = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.AnnulerButton = new System.Windows.Forms.Button();
+            this.imageBox = new System.Windows.Forms.PictureBox();
+            this.imageOpen = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.latitudeNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LongitudeNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.longitudeNumeric)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // DescritpionLabel
@@ -79,6 +82,11 @@
             // latitudeNumeric
             // 
             this.latitudeNumeric.DecimalPlaces = 5;
+            this.latitudeNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.latitudeNumeric.Location = new System.Drawing.Point(144, 281);
             this.latitudeNumeric.Maximum = new decimal(new int[] {
             99999,
@@ -94,23 +102,28 @@
             this.latitudeNumeric.Size = new System.Drawing.Size(158, 22);
             this.latitudeNumeric.TabIndex = 4;
             // 
-            // LongitudeNumeric
+            // longitudeNumeric
             // 
-            this.LongitudeNumeric.DecimalPlaces = 5;
-            this.LongitudeNumeric.Location = new System.Drawing.Point(144, 316);
-            this.LongitudeNumeric.Maximum = new decimal(new int[] {
+            this.longitudeNumeric.DecimalPlaces = 5;
+            this.longitudeNumeric.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.longitudeNumeric.Location = new System.Drawing.Point(144, 316);
+            this.longitudeNumeric.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
-            this.LongitudeNumeric.Minimum = new decimal(new int[] {
+            this.longitudeNumeric.Minimum = new decimal(new int[] {
             99999,
             0,
             0,
             -2147483648});
-            this.LongitudeNumeric.Name = "LongitudeNumeric";
-            this.LongitudeNumeric.Size = new System.Drawing.Size(158, 22);
-            this.LongitudeNumeric.TabIndex = 5;
+            this.longitudeNumeric.Name = "longitudeNumeric";
+            this.longitudeNumeric.Size = new System.Drawing.Size(158, 22);
+            this.longitudeNumeric.TabIndex = 5;
             // 
             // DescriptionLongueLabel
             // 
@@ -141,7 +154,7 @@
             // 
             // AnnulerButton
             // 
-            this.AnnulerButton.Location = new System.Drawing.Point(314, 373);
+            this.AnnulerButton.Location = new System.Drawing.Point(227, 373);
             this.AnnulerButton.Name = "AnnulerButton";
             this.AnnulerButton.Size = new System.Drawing.Size(75, 23);
             this.AnnulerButton.TabIndex = 9;
@@ -149,16 +162,28 @@
             this.AnnulerButton.UseVisualStyleBackColor = true;
             this.AnnulerButton.Click += new System.EventHandler(this.AnnulerButton_Click);
             // 
+            // imageBox
+            // 
+            this.imageBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imageBox.Location = new System.Drawing.Point(362, 281);
+            this.imageBox.Name = "imageBox";
+            this.imageBox.Size = new System.Drawing.Size(185, 131);
+            this.imageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageBox.TabIndex = 10;
+            this.imageBox.TabStop = false;
+            this.imageBox.Click += new System.EventHandler(this.imageBox_Click);
+            // 
             // CreateSiteWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 424);
+            this.Controls.Add(this.imageBox);
             this.Controls.Add(this.AnnulerButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.DescriptionLongueTextBox);
             this.Controls.Add(this.DescriptionLongueLabel);
-            this.Controls.Add(this.LongitudeNumeric);
+            this.Controls.Add(this.longitudeNumeric);
             this.Controls.Add(this.latitudeNumeric);
             this.Controls.Add(this.DescriptionTextBox);
             this.Controls.Add(this.LongitudeLabel);
@@ -166,8 +191,10 @@
             this.Controls.Add(this.DescritpionLabel);
             this.Name = "CreateSiteWindow";
             this.Text = "CreateSiteWindow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateSiteWindow_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.latitudeNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LongitudeNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.longitudeNumeric)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,10 +207,12 @@
         private System.Windows.Forms.Label LongitudeLabel;
         private System.Windows.Forms.TextBox DescriptionTextBox;
         private System.Windows.Forms.NumericUpDown latitudeNumeric;
-        private System.Windows.Forms.NumericUpDown LongitudeNumeric;
+        private System.Windows.Forms.NumericUpDown longitudeNumeric;
         private System.Windows.Forms.Label DescriptionLongueLabel;
         private System.Windows.Forms.TextBox DescriptionLongueTextBox;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button AnnulerButton;
+        private System.Windows.Forms.PictureBox imageBox;
+        private System.Windows.Forms.OpenFileDialog imageOpen;
     }
 }

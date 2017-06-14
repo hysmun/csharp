@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Site xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Description />
+  <Id>2</Id>
+  <Position>
+    <Id>37</Id>
+    <Description>Aquarium Liège</Description>
+    <Couleur />
+    <Largeur>1</Largeur>
+    <Lat>50.6387789353949</Lat>
+    <Longitude>5.57873725891113</Longitude>
+    <NBRINS>30</NBRINS>
+  </Position>
+  <Image>aqua.jpg</Image>
+</Site>

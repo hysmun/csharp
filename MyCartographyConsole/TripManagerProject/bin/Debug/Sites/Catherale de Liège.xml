@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Site xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Description />
+  <Id>1</Id>
+  <Position>
+    <Id>35</Id>
+    <Description>Catherale de Liège</Description>
+    <Couleur />
+    <Largeur>1</Largeur>
+    <Lat>50.6403438999166</Lat>
+    <Longitude>5.57169914245606</Longitude>
+    <NBRINS>30</NBRINS>
+  </Position>
+  <Image>Liege_Cathedrale_StPaul.jpg</Image>
+</Site>

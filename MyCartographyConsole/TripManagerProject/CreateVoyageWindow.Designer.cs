@@ -36,6 +36,8 @@
             this.LibelleTextBox = new System.Windows.Forms.TextBox();
             this.calendarDebut = new System.Windows.Forms.MonthCalendar();
             this.calendarFin = new System.Windows.Forms.MonthCalendar();
+            this.okButton = new System.Windows.Forms.Button();
+            this.annulerButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DescriptionLabel
@@ -106,11 +108,33 @@
             this.calendarFin.TabIndex = 7;
             this.calendarFin.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendarFin_DateSelected);
             // 
+            // okButton
+            // 
+            this.okButton.Location = new System.Drawing.Point(153, 394);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.TabIndex = 8;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            // 
+            // annulerButton
+            // 
+            this.annulerButton.Location = new System.Drawing.Point(362, 394);
+            this.annulerButton.Name = "annulerButton";
+            this.annulerButton.Size = new System.Drawing.Size(81, 23);
+            this.annulerButton.TabIndex = 9;
+            this.annulerButton.Text = "Annuler";
+            this.annulerButton.UseVisualStyleBackColor = true;
+            this.annulerButton.Click += new System.EventHandler(this.annulerButton_Click);
+            // 
             // CreateVoyageWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 393);
+            this.ClientSize = new System.Drawing.Size(611, 429);
+            this.Controls.Add(this.annulerButton);
+            this.Controls.Add(this.okButton);
             this.Controls.Add(this.calendarFin);
             this.Controls.Add(this.calendarDebut);
             this.Controls.Add(this.LibelleTextBox);
@@ -121,7 +145,6 @@
             this.Controls.Add(this.DescriptionLabel);
             this.Name = "CreateVoyageWindow";
             this.Text = "Creation d\'un nouveau voyage";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateVoyageWindow_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -137,5 +160,7 @@
         private System.Windows.Forms.TextBox LibelleTextBox;
         private System.Windows.Forms.MonthCalendar calendarDebut;
         private System.Windows.Forms.MonthCalendar calendarFin;
+        private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.Button annulerButton;
     }
 }
