@@ -80,7 +80,7 @@ namespace TripManagerProject
             imageOpen.ShowDialog();
             if (modif == false)
             {
-                formPrincipale.tmpSite.Image = imageOpen.FileName.Remove(0, formPrincipale.tripParam.PathName.Length);
+                formPrincipale.tmpSite.Image = imageOpen.FileName;
                 imageBox.ImageLocation = formPrincipale.tmpSite.Image;
             }
             else

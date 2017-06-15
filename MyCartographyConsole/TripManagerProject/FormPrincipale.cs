@@ -284,7 +284,7 @@ namespace TripManagerProject
                         gMarker = new GMarkerGoogle(new PointLatLng(st.Position.Lat, st.Position.Longitude), tripParam.Couleur);
                     else
                     {
-                        Bitmap tmpBt = new Bitmap(formPrincipale.tripParam.PathName+@"\Images\"+st.Image);
+                        Bitmap tmpBt = new Bitmap(st.Image);
                         Bitmap bt = new Bitmap(tmpBt, new Size(50,50));
                         
                         gMarker = new GMarkerGoogle(new PointLatLng(st.Position.Lat, st.Position.Longitude), bt);

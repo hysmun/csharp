@@ -91,6 +91,7 @@
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.descripionLabel);
             this.Name = "AProposForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AProposForm";
             this.ResumeLayout(false);
             this.PerformLayout();

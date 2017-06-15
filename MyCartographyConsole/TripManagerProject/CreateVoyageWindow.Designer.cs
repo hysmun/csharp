@@ -144,6 +144,7 @@
             this.Controls.Add(this.LibelleLabel);
             this.Controls.Add(this.DescriptionLabel);
             this.Name = "CreateVoyageWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Creation d\'un nouveau voyage";
             this.ResumeLayout(false);
             this.PerformLayout();

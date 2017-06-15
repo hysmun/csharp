@@ -46,6 +46,7 @@
             this.ClientSize = new System.Drawing.Size(1158, 544);
             this.Controls.Add(this.debugTextBox);
             this.Name = "debugForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "debugForm";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -15,7 +15,7 @@ namespace TripManagerProject
         public AProposForm()
         {
             InitializeComponent();
-            dateLabel.Text = "" + (new DateTime()).ToString("dd/MM/yyyy");
+            dateLabel.Text = "" + DateTime.Now.ToString("dd/MM/yyyy");
             descripionLabel.Text = "Application de gestion de trajet dans le cadre de la fin d'année du cours de c# pour Madame Moitroux";
         }
 

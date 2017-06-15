@@ -60,6 +60,7 @@
             this.Controls.Add(this.annulerButton);
             this.Controls.Add(this.ajoutButton);
             this.Name = "AddSiteMarker";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ajout Site";
             this.ResumeLayout(false);
 

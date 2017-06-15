@@ -171,6 +171,7 @@
             this.Controls.Add(this.pathnameLabel);
             this.Controls.Add(this.precisionLabel);
             this.Name = "ParamForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "paramForm";
             ((System.ComponentModel.ISupportInitialize)(this.precisionNumeric)).EndInit();
             this.ResumeLayout(false);

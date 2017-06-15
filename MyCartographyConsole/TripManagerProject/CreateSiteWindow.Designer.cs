@@ -190,6 +190,7 @@
             this.Controls.Add(this.LatitudeLabel);
             this.Controls.Add(this.DescritpionLabel);
             this.Name = "CreateSiteWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateSiteWindow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CreateSiteWindow_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.latitudeNumeric)).EndInit();
